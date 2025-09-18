@@ -11,11 +11,10 @@ def read_text_file(file_path):
 def write_text_file(file_path, lines):
     path = Path(file_path)
 
-    path.wrtie_text("\n".join(lines), encoding = "utf-8")
+    path.write_text("\n".join(lines), encoding = "utf-8")
 
 # Database Helpers
 import sqlite3
-from pathlib import Path
 
 # Create a SQLite database and a table for processed text data
 def create_db(db_path, table_name = "processed"):

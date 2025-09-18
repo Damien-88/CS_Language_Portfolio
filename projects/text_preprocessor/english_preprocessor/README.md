@@ -42,6 +42,27 @@ This project implements a full **English text preprocessing pipeline** suitable 
 ## Getting Started
 
 ### Requirements
+This project requires Python 3.10+ and the following packages:
 
 ```bash
 pip install -r requirements.txt
+
+python -m spacy download en_core_web_sm
+
+## Example Output
+
+| original_text                 | cleaned_text                   | tokens                              | lemmas                          |
+|-------------------------------|--------------------------------|-------------------------------------|---------------------------------|
+| "That's totally amazing!"     | "that s totally amazing"       | ["that", "s", "totally", "amazing"] | ["that", "be", "totally", "amazing"] |
+
+## Project Structure
+text_preprocessor/
+├── english_preprocessor/
+│ ├── code/
+│ │ ├── preprocess_en.py # Main text preprocessing script
+│ │ └── utils.py         # File I/O and database helper functions
+│ ├── data/
+│ │ └── sample_en.txt    # Sample text file for testing
+│ ├── demo.ipynb      # Jupyter notebook demonstrating preprocessing
+│ ├── README.md
+│ └── requirements.txt

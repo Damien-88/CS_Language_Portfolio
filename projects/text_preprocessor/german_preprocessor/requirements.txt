@@ -2,7 +2,7 @@
 nltk >= 3.8.0
 spacy >= 3.6.0
 
-# Data Handling Libraries
+# Data Handling
 pandas >= 2.1.0
 
 # Python Version Used
