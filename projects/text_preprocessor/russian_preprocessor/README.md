@@ -1,7 +1,7 @@
-# German Text Preprocessor  
+# Russian Text Preprocessor  
 
 ## Overview
-This project implements a full **German text preprocessing pipeline** suitable for NLP and intelligence-focused tasks. The pipeline cleans, tokenizes, normalizes, and lemmatizes text, while handling common contractions and removing stopwords. Processed results are stored in a SQLite database for downstream analysis.
+This project implements a full **Russian text preprocessing pipeline** suitable for NLP and intelligence-focused tasks. The pipeline cleans, tokenizes, normalizes, and lemmatizes text, while handling common contractions and removing stopwords. Processed results are stored in a SQLite database for downstream analysis.
 
 ---
 
@@ -17,7 +17,7 @@ This project implements a full **German text preprocessing pipeline** suitable f
   - Uses **spaCy** (preferred) or **NLTK** as fallback
 
 - **Stopword Removal**
-  - Removes German stopwords using NLTK
+  - Removes Russian stopwords using NLTK
 
 - **Lemmatization**
   - Uses spaCy lemmatizer
@@ -42,22 +42,22 @@ This project requires Python 3.10+ and the following packages:
 ```bash
 pip install -r requirements.txt
 
-python -m spacy download de_core_news_sm
+python -m spacy download ru_core_news_sm
 
 ## Example Output
 
 | original_text            | cleaned_text         | tokens                        | lemmas                         |
 |--------------------------|----------------------|-------------------------------|--------------------------------|
-| "Das ist ein Buch."      | "das ist ein buch"   | ["das", "ist", "ein", "buch"] | ["das", "sein", "ein", "buch"] |
+| "Это новая книга."      | "это новая книга"     |   ["это", "новая", "книга"]   |    ["это", "новый", "книга"]   |
 
 ## Project Structure
 text_preprocessor/
-├── german_preprocessor/
+├── russian_preprocessor/
 │ ├── code/
-│ │ ├── preprocess_de.py # Main German text preprocessing script
+│ │ ├── preprocess_ru.py # Main Russian text preprocessing script
 │ │ └── utils.py         # File I/O and database helper functions
 │ ├── data/
-│ │ └── sample_de.txt    # Sample German text file for testing
-│ ├── demo_de.ipynb      # Jupyter notebook demonstrating preprocessing
+│ │ └── sample_ru.txt    # Sample Russian text file for testing
+│ ├── demo_ru.ipynb      # Jupyter notebook demonstrating preprocessing
 │ ├── README.md
 │ └── requirements.txt
