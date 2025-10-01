@@ -9,7 +9,7 @@ def read_text_file(file_path):
     if not path.exists():
         raise FileNotFoundError(f"File not found: {file_path}")
     
-    return path.read_text(encoding = "utf=8").splitlines()
+    return path.read_text(encoding = "utf-8").splitlines()
 
 # Write line to text file
 def write_text_file(file_path, lines):
@@ -38,7 +38,7 @@ def create_db(db_path, table_name = "processed_data"):
         conn.commit()
 
 # Insert multiple rows of processed data into DB
-def insert_rows(db_path, rows, table_name = "processed"):
+def insert_rows(db_path, rows, table_name = "processed_data"):
     # Connect to SQLite database at given path
     # Wrap to auto close connection
     with sqlite3.connect(db_path) as conn:
@@ -50,10 +50,10 @@ def insert_rows(db_path, rows, table_name = "processed"):
             # Execute SQL to indsert row into table
             cursor.execute(f"""
                 INSERT INTO {table_name} (
-                original_text,
-                cleaned_text,
-                tokens,
-                lemmas
+                    original_text,
+                    cleaned_text,
+                    tokens,
+                    lemmas
                 ) VALUES (?, ?, ?, ?)
                 """,
                 (
