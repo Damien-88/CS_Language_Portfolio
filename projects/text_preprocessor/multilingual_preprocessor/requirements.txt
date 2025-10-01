@@ -1,0 +1,24 @@
+# Core NLP Libraries
+nltk >= 3.8.0
+spacy >= 3.6.0
+
+# Data Handling
+pandas >= 2.1.0
+
+# Database
+sqlite3-binary ; sys_platform != "win32"
+
+# Python Version Used
+python >= 3.10
+
+# Notes:
+# After installing, download the required spaCy models:
+#   python -m spacy download en_core_web_sm
+#   python -m spacy download de_core_news_sm
+#   python -m spacy download ru_core_news_sm
+#
+# Also, ensure NLTK resources are downloaded once in code or manually:
+#   import nltk
+#   nltk.download("punkt")
+#   nltk.download("stopwords")
+#   nltk.download("wordnet")
