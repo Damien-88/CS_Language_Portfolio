@@ -9,19 +9,19 @@ Welcome! This portfolio showcases projects combining **Computer Science, Mathema
 
 ## Portfolio Roadmap
 
-### Months 1–3: Foundations & Entry Projects
+### Phase 1: Foundations & Entry Projects
 - [Text Preprocessor](projects/text-preprocessor)
 - [Sentiment Analysis](projects/sentiment-analysis)
 
-### Months 4–6: Applied NLP + Search
+### Phase 2: Applied NLP + Search
 - [Machine Translation](projects/machine-translation)
 - [Cross-Lingual Search Engine](projects/cross-lingual-search)
 
-### Months 7–9: Advanced Language Intelligence
+### Phase 3: Advanced Language Intelligence
 - [Named Entity Recognition](projects/named_entity_recognition)
 - [Speech-to-Text Pipeline](projects/speech_to_text)
 
-### Months 10–12: Flagship Capstone
+### Phase 4: Flagship Capstone
 - [Cross-Lingual Intelligence Platform](projects/cross_lingual_intelligence_platform)
 - [Disinformation Detection Tool](projects/disinformation_detection)
 

@@ -4,7 +4,6 @@ import re
 import unicodedata
 from pathlib import Path
 from typing import List, Dict
-from utils import read_text_file, write_text_file, create_db, insert_rows
 
 import nltk
 from nltk.corpus import stopwords
@@ -150,6 +149,19 @@ def process_file(input_path):
         print(f"Tokens: {row['tokens']}")        # Print tokens
         print(f"Lemmas: {row['lemmas']}")        # Print lemmas
         print("-" * 40)                          # Print separator
+
+def preprocess_text(text):
+    """
+    Full preprocessing pipeline for prediction:
+    clean → tokenize → remove stopwords → lemmatize
+    """
+
+    cleaned = clean_text(text)
+    tokens = tokenize_text(cleaned)
+    tokens = remove_stopwords(tokens)
+    lemmas = lemmatize_tokens(tokens)
+
+    return " ".join(lemmas)
 
 # Main Execution
 if __name__ == "__main__":

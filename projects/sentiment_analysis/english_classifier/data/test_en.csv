@@ -1,0 +1,21 @@
+text,sentiment
+"I really love this item.",positive
+"This is absolutely terrible.",negative
+"It works fine for me.",neutral
+"I am very happy with it.",positive
+"I regret purchasing this.",negative
+"The quality is excellent.",positive
+"It is not good at all.",negative
+"Nothing special about it.",neutral
+"I enjoy using this product.",positive
+"The experience was awful.",negative
+"It is okay I guess.",neutral
+"This is wonderful.",positive
+"I am disappointed.",negative
+"It performs well.",positive
+"It is just average.",neutral
+"This is the best ever.",positive
+"I hate this so much.",negative
+"It works as intended.",neutral
+"Very satisfied with it.",positive
+"This is not worth it.",negative
