@@ -1,21 +1,42 @@
 text,sentiment
-"I really love this item.",positive
-"This is absolutely terrible.",negative
-"It works fine for me.",neutral
-"I am very happy with it.",positive
-"I regret purchasing this.",negative
-"The quality is excellent.",positive
-"It is not good at all.",negative
-"Nothing special about it.",neutral
-"I enjoy using this product.",positive
-"The experience was awful.",negative
-"It is okay I guess.",neutral
-"This is wonderful.",positive
-"I am disappointed.",negative
-"It performs well.",positive
-"It is just average.",neutral
-"This is the best ever.",positive
-"I hate this so much.",negative
-"It works as intended.",neutral
-"Very satisfied with it.",positive
-"This is not worth it.",negative
+"This plugin breaks my workflow.",negative
+"The screen is bright and vibrant.",positive
+"The screen is decent indoors.",neutral
+"The screen is dim and hard to read.",negative
+"Everything about this feels polished.",positive
+"Most parts are fine, with a few rough edges.",neutral
+"Everything about this feels rushed.",negative
+"I am genuinely satisfied with this purchase.",positive
+"I am neither satisfied nor dissatisfied.",neutral
+"I am deeply dissatisfied with this purchase.",negative
+"The checkout process was quick and simple.",positive
+"The checkout process worked after one retry.",neutral
+"The checkout process failed repeatedly.",negative
+"This tool saves me a lot of time.",positive
+"This tool works for simple tasks only.",neutral
+"This tool wastes more time than it saves.",negative
+"The improvements are obvious and valuable.",positive
+"The improvements are minor but noticeable.",neutral
+"The so-called improvements made things worse.",negative
+"I was impressed with the build quality.",positive
+"The build quality is average.",neutral
+"The build quality is fragile and disappointing.",negative
+"The response time is excellent.",positive
+"The response time is reasonable.",neutral
+"The response time is painfully slow.",negative
+"This made my work much easier.",positive
+"This had little impact on my work.",neutral
+"This made my work harder.",negative
+"The flavor is rich and balanced.",positive
+"The flavor is mild and ordinary.",neutral
+"The flavor is unpleasant and bitter.",negative
+"It does the job without standing out.",neutral
+"I can use it, but I do not feel strongly about it.",neutral
+"The experience was neither smooth nor difficult.",neutral
+"It works similarly to other options in this category.",neutral
+"The outcome is acceptable, not exceptional.",neutral
+"For my needs, it is mostly okay.",neutral
+"This version is different but not better or worse.",neutral
+"The latest update removed features I rely on.",negative
+"The connection keeps dropping at random times.",negative
+"I ran into errors before I could finish setup.",negative

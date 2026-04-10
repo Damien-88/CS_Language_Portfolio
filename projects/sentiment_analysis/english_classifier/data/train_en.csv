@@ -59,3 +59,109 @@ text,sentiment
 "I love it so much.",positive
 "I would not buy this again.",negative
 "Everything is fine.",neutral
+"I really love this item.",positive
+"This is absolutely terrible.",negative
+"It works fine for me.",neutral
+"I am very happy with it.",positive
+"I regret purchasing this.",negative
+"The quality is excellent.",positive
+"It is not good at all.",negative
+"Nothing special about it.",neutral
+"I enjoy using this product.",positive
+"The experience was awful.",negative
+"It is okay I guess.",neutral
+"This is wonderful.",positive
+"I am disappointed.",negative
+"It performs well.",positive
+"It is just average.",neutral
+"This is the best ever.",positive
+"I hate this so much.",negative
+"It works as intended.",neutral
+"Very satisfied with it.",positive
+"This is not worth it.",negative
+"The update fixed every issue I had.",positive
+"The update changed a few settings, but it is manageable.",neutral
+"The update introduced new bugs and slowed everything down.",negative
+"Customer support solved my problem quickly.",positive
+"Customer support replied, but I still need to wait.",neutral
+"Customer support ignored my messages for days.",negative
+"This laptop feels fast and reliable.",positive
+"This laptop is fine for basic office tasks.",neutral
+"This laptop freezes during normal use.",negative
+"I am impressed by the battery life.",positive
+"The battery life is average for this price range.",neutral
+"The battery drains in just a couple of hours.",negative
+"The audio quality is rich and clear.",positive
+"The audio quality is acceptable for casual listening.",neutral
+"The audio quality is distorted and noisy.",negative
+"Setup was simple and everything worked on first try.",positive
+"Setup took some time, but it eventually worked.",neutral
+"Setup was confusing and failed multiple times.",negative
+"This camera takes beautiful photos.",positive
+"This camera performs as expected in daylight.",neutral
+"This camera produces blurry images even in good light.",negative
+"The interface is clean and intuitive.",positive
+"The interface is usable once you learn where things are.",neutral
+"The interface is cluttered and frustrating.",negative
+"Shipping was quicker than promised.",positive
+"Shipping arrived on the scheduled date.",neutral
+"Shipping was delayed twice without explanation.",negative
+"The material feels premium and durable.",positive
+"The material feels standard, nothing remarkable.",neutral
+"The material feels cheap and tears easily.",negative
+"I would definitely buy this again.",positive
+"I might buy this again if the price is right.",neutral
+"I will not buy this again.",negative
+"Performance is excellent under heavy load.",positive
+"Performance is steady for normal workloads.",neutral
+"Performance drops badly under light use.",negative
+"The design looks modern and elegant.",positive
+"The design is plain but functional.",neutral
+"The design looks outdated and awkward.",negative
+"This course explained the topic very clearly.",positive
+"This course covered the basics without much depth.",neutral
+"This course was disorganized and hard to follow.",negative
+"The app feels smooth and responsive.",positive
+"The app works, but it has occasional lag.",neutral
+"The app crashes every time I open it.",negative
+"This keyboard is comfortable for long sessions.",positive
+"This keyboard is okay once you adjust to it.",neutral
+"This keyboard has sticky keys and missed inputs.",negative
+"I appreciate the thoughtful packaging.",positive
+"The packaging was standard and undamaged.",neutral
+"The packaging arrived torn and poorly protected.",negative
+"The instructions were clear and easy to follow.",positive
+"The instructions were brief but understandable.",neutral
+"The instructions were confusing and incomplete.",negative
+"This service exceeded my expectations.",positive
+"This service met my basic expectations.",neutral
+"This service failed to deliver what was promised.",negative
+"The color and finish look great in person.",positive
+"The color is slightly different but acceptable.",neutral
+"The color is completely different from the listing.",negative
+"The new feature is genuinely useful.",positive
+"The new feature is present, though I rarely use it.",neutral
+"The new feature is broken and unusable.",negative
+"I am happy with the overall value.",positive
+"The overall value is fair for the price.",neutral
+"The overall value is poor for what you pay.",negative
+"Navigation is fast and effortless.",positive
+"Navigation is okay after some practice.",neutral
+"Navigation is slow and unnecessarily complicated.",negative
+"The product feels well engineered.",positive
+"The product works, but nothing stands out.",neutral
+"The product feels poorly made.",negative
+"This was a pleasant surprise.",positive
+"This was about what I expected.",neutral
+"This was a huge disappointment.",negative
+"I like how reliable it has been so far.",positive
+"It has been mostly reliable with minor issues.",neutral
+"It has been unreliable from day one.",negative
+"The controls are straightforward.",positive
+"The controls are fine once configured.",neutral
+"The controls are inconsistent and unresponsive.",negative
+"The final result looks fantastic.",positive
+"The final result is acceptable for basic needs.",neutral
+"The final result looks sloppy and unfinished.",negative
+"This plugin integrates perfectly with my workflow.",positive
+"This plugin integrates with some manual adjustment.",neutral

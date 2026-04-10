@@ -31,31 +31,44 @@ LABEL_MAP = {
 }
 
 
+def _proba_by_label(processed_text):
+    """
+    Return class probabilities keyed by sentiment label, using model.classes_
+    to avoid relying on fixed class order.
+    """
+    vector = vectorizer.transform([processed_text])
+    probs = model.predict_proba(vector)[0]
+
+    by_label = {}
+    for cls, prob in zip(model.classes_, probs):
+        by_label[LABEL_MAP.get(int(cls), "unknown")] = float(prob)
+
+    for label in ("negative", "neutral", "positive"):
+        by_label.setdefault(label, 0.0)
+
+    return by_label
+
+
 # SINGLE PREDICTION FUNCTION
-def predict_sentiment(text):
+def predict_sentiment(text, min_confidence=0.45, neutral_margin=0.12):
     # Preprocess input text
     processed_text = preprocess_text(text)
+    scores = _proba_by_label(processed_text)
 
-    # Convert text into TF_IDF vector
-    vector = vectorizer.transform([processed_text])
+    ranked = sorted(scores.items(), key=lambda x: x[1], reverse=True)
+    top_label, top_prob = ranked[0]
+    second_prob = ranked[1][1]
 
-    # Predict Sentiment
-    prediction = model.predict(vector)[0]
+    # If confidence is weak or classes are too close, prefer neutral.
+    if top_label != "neutral" and (top_prob < min_confidence or (top_prob - second_prob) < neutral_margin):
+        return "neutral"
 
-    return LABEL_MAP.get(prediction, "unknown")
+    return top_label
 
 # PROBABILITY PREDICTION
 def predict_proba(text):
     processed_text = preprocess_text(text)
-    vector = vectorizer.transform([processed_text])
-
-    probs = model.predict_proba(vector)[0]
-
-    return {
-        "negative": probs[0],
-        "neutral": probs[1],
-        "positive": probs[2]
-    }
+    return _proba_by_label(processed_text)
 
 # BATCH PREDICTION FUNCTION
 def predict_batch_detailed(text_list):
@@ -63,19 +76,13 @@ def predict_batch_detailed(text_list):
 
     for text in text_list:
         processed = preprocess_text(text)
-        vector = vectorizer.transform([processed])
-
-        pred = model.predict(vector)[0]
-        probs = model.predict_proba(vector)[0]
+        scores = _proba_by_label(processed)
+        pred_label = predict_sentiment(text)
 
         results.append({
             "text": text,
-            "prediction": LABEL_MAP.get(pred, "unknown"),
-            "probabilities": {
-                "negative": probs[0],
-                "neutral": probs[1],
-                "positive": probs[2]
-            }
+            "prediction": pred_label,
+            "probabilities": scores
         })
 
     return results

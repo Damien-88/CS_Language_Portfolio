@@ -8,16 +8,17 @@ import pandas as pd
 from pathlib import Path
 
 # ML Models
-from sklearn.model_selection import train_test_split
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score, classification_report
+from sklearn.model_selection import train_test_split # For splitting data into training and test sets
+from sklearn.feature_extraction.text import TfidfVectorizer # For converting text to TF-IDF features
+from sklearn.linear_model import LogisticRegression # Logistic regression model for classification
+from sklearn.calibration import CalibratedClassifierCV # For calibrating predicted probabilities
+from sklearn.metrics import accuracy_score, classification_report # For evaluating model performance
 
 # Model Persistence
 import pickle
 
 # Preprocessing Pipeline
-from preprocess_en import clean_text
+from preprocess_en import preprocess_text
 
 # FILE PATHS
 BASE_DIR = Path(__file__).resolve().parents[1] # Base directory
@@ -50,7 +51,9 @@ print("Dataset size:", df.shape)
 print("Class distribution:\n", df["sentiment"].value_counts())
 
 # PREPROCESS TEXT
-df["cleaned_text"] = df["text"].apply(clean_text) # Clean the text data
+# Keep train-time preprocessing identical to prediction-time preprocessing.
+df["cleaned_text"] = df["text"].apply(preprocess_text)
+df = df[df["cleaned_text"].str.len() > 0]
 
 # SPLIT DATA
 X = df["cleaned_text"] # Features
@@ -66,8 +69,11 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 # VECTORIZE TEXT TF-IDF
 vectorizer = TfidfVectorizer(
-    max_features = 5000, # Limit vocabulary size or efficienct
-    ngram_range = (1, 2) # Unigrams and Bigrams to impprove accuracy
+    max_features = 10000, # Slightly larger vocabulary
+    ngram_range = (1, 2), # Unigrams and bigrams
+    min_df = 2, # Reduce noisy one-off terms
+    max_df = 0.9, # Remove very common terms
+    sublinear_tf = True # Use sublinear term frequency scaling
 )
 
 # Fit vectorizer on training data and transform train and test sets
@@ -76,8 +82,20 @@ X_test_vec = vectorizer.transform(X_test)
 
 # TRAIN MODEL
 # Logistic regression for strong baseline
-model = LogisticRegression(max_iter = 1000, multi_class = "auto") # Increase max iterations for convergence
-model.fit(X_train_vec, y_train) # Train model on vectorized training data
+base_model = LogisticRegression(
+    max_iter = 2000, # Increase iterations for convergence
+    class_weight = "balanced", # Handle class imbalance
+    C = 1.5, # Slightly stronger regularization to prevent overfitting
+    multi_class = "auto" # Automatically choose between 'ovr' and 'multinomial' based on data
+)
+
+# Calibrate probabilities so confidence scores are more meaningful.
+model = CalibratedClassifierCV(
+    estimator = base_model, # Use logistic regression as base model
+    method = "sigmoid", # Platt scaling for probability calibration
+    cv = 3 # 3-fold cross-validation for calibration
+)
+model.fit(X_train_vec, y_train) # Train the model on the training data
 
 # EVALUATE MODEL
 y_pred = model.predict(X_test_vec) # Predict on test set
