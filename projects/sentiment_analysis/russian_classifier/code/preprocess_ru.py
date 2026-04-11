@@ -1,127 +1,73 @@
-# Russian Text Preprocessing Pipeline
-# Import necessary libraries
-import re
-import unicodedata
-from pathlib import Path
-from typing import List, Dict
-from utils_ru import read_text_file, write_text_file, create_db, insert_rows
+# English text preprocessing for sentiment analysis
 
-import nltk
-from nltk.corpus import stopwords
-from nltk.stem.snowball import RussianStemmer
-from nltk import word_tokenize
+import re # Regular expressions for text cleaning
+import unicodedata # Unicode normalization
 
-# Attempt to import spaCy and load the Russian model
+from nltk.corpus import stopwords # Stopword list for English
+from nltk.stem import WordNetLemmatizer # Lemmatizer for reducing words to their base form
+from nltk import word_tokenize # Tokenizer for splitting text into words
+
+# Attempt to load spaCy for improved tokenization and lemmatization.
 try:
     import spacy
-    nlp = spacy.load("ru_core_news_sm")
+    nlp = spacy.load("en_core_web_sm")
+# If spaCy is not available, fall back to NLTK-based processing.
 except Exception:
     nlp = None
 
-# Check NLTK resources
-# Run nltk.download("punkt"), nltk.download("stopwords") if not already downloaded
-STOPWORDS = set(stopwords.words("russian"))
-stemmer = RussianStemmer()
 
-DB_PATH = Path(__file__).resolve().parents[1] / "data" / "processed_results_ru.db"
+# Keep key sentiment negations even when removing stopwords.
+_NEGATION_WORDS = {"no", "not", "nor", "never", "none", "nobody", "nothing", "neither", "nowhere", "hardly", "scarcely", "barely"}
 
-# Clean
+try:
+    _base_stopwords = set(stopwords.words("english"))
+except LookupError:
+    # Fallback if NLTK stopwords are not available in the environment.
+    _base_stopwords = set()
+
+STOPWORDS = _base_stopwords - _NEGATION_WORDS
+lemmatizer = WordNetLemmatizer()
+
+# Main preprocessing function that applies all steps in sequence.
 def clean_text(text):
-    # Normalize unicode characters
-    text = unicodedata.normalize("NFKC", text)
-    text = text.lower()
-
-    # Remove URLs and mentions
-    text = re.sub(r"http\S+|www\.\S+", "", text)
-    text = re.sub(r"@\w+", "", text)
-
-    # Remove punctuation (Keep Cyrillic Characters and Numbers)
-    text = re.sub(r"[^а-яё0-9\s]", " ", text)
+    text = unicodedata.normalize("NFKC", str(text)).lower() # Normalize unicode and convert to lowercase
+    text = re.sub(r"http\S+|www\.\S+", "", text) # Remove URLs
+    text = re.sub(r"@\w+", "", text) # Remove mentions
+    # Keep apostrophes to better preserve words like "don't".
+    text = re.sub(r"[^a-z0-9\s']", " ", text) # Remove special characters
+    text = re.sub(r"\s+", " ", text).strip() # Remove extra whitespace
     
-    # Remove whitespace
-    text = re.sub(r"\s+", " ", text).strip()
-
     return text
 
-# Tokenize (Word)
+# TOKENIZATION, STOPWORD REMOVAL, AND LEMMATIZATION
 def tokenize_text(text):
-    # Use spaCy if available
+    # Use spaCy tokenizer if available for better handling of contractions and punctuation.
     if nlp:
-        doc = nlp(text)
+        return [t.text for t in nlp(text)]
 
-        return [t.text for t in doc]
-    # Fallback
-    else:
-        return word_tokenize(text, language = "russian")
+    # Fallback to NLTK word_tokenize, which may require downloading the 'punkt' resource.
+    try:
+        return word_tokenize(text)
+    except LookupError:
+        # Fallback if punkt tokenizer resource is missing.
+        return text.split()
 
-# Remove Stopwords
+# Remove stopwords but keep negations.
 def remove_stopwords(tokens):
     return [token for token in tokens if token not in STOPWORDS]
 
-# Stem Tokens
-def stem_tokens(tokens):
-    return [stemmer.stem(token) for token in tokens]
-
-# Lemmatize Tokens
+# Lemmatize tokens using spaCy if available, otherwise use NLTK's WordNetLemmatizer.
 def lemmatize_tokens(tokens):
-    # Use spaCy lammas if abvailable
     if nlp:
         doc = nlp(" ".join(tokens))
         return [token.lemma_ for token in doc]
-    # No NLTK as fallback return message as tokens instead
-    else:
-        print("spaCy not available, returning original tokens as lemmas.")
-        return tokens
+    return [lemmatizer.lemmatize(token) for token in tokens]
 
-# File Processer
-def process_file(input_path):
-    # Read all lines from the input file
-    lines = read_text_file(input_path)
-    # List to store processed rows
-    processed_rows = []
+# Main preprocessing function that applies all steps in sequence.
+def preprocess_text(text):
+    cleaned = clean_text(text)
+    tokens = tokenize_text(cleaned)
+    tokens = remove_stopwords(tokens)
+    lemmas = lemmatize_tokens(tokens)
 
-    # Process each line in the file
-    for line in lines:
-        cleaned = clean_text(line)           # Clean the text
-        tokens = tokenize_text(cleaned)      # Tokenize the cleaned text
-        tokens = remove_stopwords(tokens)    # Remove stopwords from tokens
-        lemmas = lemmatize_tokens(tokens)    # Lemmatize the tokens
-
-        # Append processed data as a dictionary
-        processed_rows.append(
-            {
-                "original": line,            # Original line
-                "cleaned": cleaned,          # Cleaned text
-                "tokens": tokens,            # List of tokens
-                "lemmas": lemmas             # List of lemmas
-            }
-        )
-    
-    # Create DB and insert rows with utils.py
-    create_db(DB_PATH, table_name = "processed_ru")
-    insert_rows(DB_PATH, processed_rows, table_name = "processed_ru")
-
-    # Preview the first 5 processed rows
-    for row in processed_rows[:5]:
-        print(f"Original: {row['original']}")    # Print original text
-        print(f"Cleaned: {row['cleaned']}")      # Print cleaned text
-        print(f"Tokens: {row['tokens']}")        # Print tokens
-        print(f"Lemmas: {row['lemmas']}")        # Print lemmas
-        print("-" * 40)                          # Print separator
-
-# Main Execution
-if __name__ == "__main__":
-    import argparse
-    
-    # Set up command-line argument parser
-    parser = argparse.ArgumentParser(description = "Russian Text Preprocessor")
-    # Add input file argument
-    parser.add_argument(
-        "--in", dest = "input", 
-        default = "../data/sample_ru.txt", 
-        help = "input file path"
-    )
-    # Parse command-line arguments
-    args = parser.parse_args()
-    # Process the input file
-    process_file(args.input)
+    return " ".join(lemmas)

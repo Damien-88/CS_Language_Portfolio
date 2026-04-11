@@ -1,0 +1,208 @@
+text,sentiment
+"Ich liebe dieses Produkt absolut, es funktioniert perfekt.",positive
+"Das ist die schlimmste Erfahrung, die ich je gemacht habe.",negative
+"Der Film war wirklich unterhaltsam und macht Spaß.",positive
+"Ich bin von der Qualität sehr enttäuscht.",negative
+"Der Service war okay, nichts Besonderes.",neutral
+"Dieses Buch ist fantastisch und gut geschrieben.",positive
+"Ich hasse, wie langsam diese App ist.",negative
+"Die Lieferung war schnell und alles war in Ordnung.",positive
+"Ich bin bei diesem Update neutral eingestellt.",neutral
+"Das ist großartig, ich bin sehr zufrieden.",positive
+"Das Produkt ist nach zwei Tagen kaputtgegangen.",negative
+"Insgesamt war es eine durchschnittliche Erfahrung.",neutral
+"Ich schätze den schnellen Support wirklich.",positive
+"Die Benutzeroberfläche ist verwirrend und schwer zu bedienen.",negative
+"Ich bin mit meinem Kauf zufrieden.",positive
+"Nichts Beeindruckendes, es wirkt gewöhnlich.",neutral
+"Das ist genau das, was ich gebraucht habe.",positive
+"Die Erfahrung war schrecklich.",negative
+"Es ist nur ein Standardprodukt.",neutral
+"Absolut wunderbare Erfahrung.",positive
+"Die App stürzt ständig ab.",negative
+"Ich bin zufrieden, aber es könnte besser sein.",neutral
+"Das ist der beste Kauf, den ich gemacht habe.",positive
+"Die Qualität ist schlecht und billig.",negative
+"Es funktioniert gut genug.",neutral
+"Ich bin überhaupt nicht beeindruckt.",negative
+"Dieses Produkt ist für den Preis ordentlich.",neutral
+"Ich liebe, wie einfach dieses System ist.",positive
+"Die Ergebnisse waren enttäuschend.",negative
+"Alles läuft reibungslos.",positive
+"Ich bin damit äußerst zufrieden.",positive
+"Der Artikel ist nutzlos und kaputt.",negative
+"Die Erfahrung war insgesamt in Ordnung.",neutral
+"Ich kann dieses Produkt sehr empfehlen.",positive
+"Es funktioniert nicht richtig.",negative
+"Ich bin damit okay.",neutral
+"Das ist ausgezeichnete Qualität.",positive
+"Insgesamt eine sehr schlechte Erfahrung.",negative
+"Hier nichts allzu Besonderes.",neutral
+"Ich bin mit den Ergebnissen zufrieden.",positive
+"Das ist frustrierend und nervig.",negative
+"Es ist einfach in Ordnung.",neutral
+"Erstaunliche Leistung und tolles Design.",positive
+"Ich bereue diesen Kauf.",negative
+"Für den täglichen Gebrauch ist es akzeptabel.",neutral
+"Ich benutze das wirklich gerne.",positive
+"Das ist das Geld nicht wert.",negative
+"Die Erfahrung ist durchschnittlich.",neutral
+"Ich bin sehr zufrieden damit.",positive
+"Das Produkt hat aufgehört zu funktionieren.",negative
+"Es ist weder gut noch schlecht.",neutral
+"Das ist herausragend und beeindruckend.",positive
+"Ich bin mit diesem Kauf unzufrieden.",negative
+"Es funktioniert wie erwartet.",neutral
+"Ich kann es sehr empfehlen.",positive
+"Das ist ein kompletter Fehlschlag.",negative
+"Für die grundlegende Nutzung ist es okay.",neutral
+"Ich liebe es so sehr.",positive
+"Ich würde das nicht noch einmal kaufen.",negative
+"Alles ist in Ordnung.",neutral
+"Ich mag diesen Artikel wirklich sehr.",positive
+"Das ist absolut schrecklich.",negative
+"Für mich funktioniert es gut.",neutral
+"Ich bin sehr glücklich damit.",positive
+"Ich bereue, das gekauft zu haben.",negative
+"Die Qualität ist hervorragend.",positive
+"Es ist überhaupt nicht gut.",negative
+"Nichts Besonderes daran.",neutral
+"Ich nutze dieses Produkt gerne.",positive
+"Die Erfahrung war furchtbar.",negative
+"Es ist, denke ich, okay.",neutral
+"Das ist wunderbar.",positive
+"Ich bin enttäuscht.",negative
+"Es funktioniert gut.",positive
+"Es ist nur durchschnittlich.",neutral
+"Das ist das Beste überhaupt.",positive
+"Ich hasse das so sehr.",negative
+"Es funktioniert wie vorgesehen.",neutral
+"Sehr zufrieden damit.",positive
+"Das ist es nicht wert.",negative
+"Das Update hat jedes Problem behoben, das ich hatte.",positive
+"Das Update hat ein paar Einstellungen geändert, aber es ist handhabbar.",neutral
+"Das Update hat neue Fehler eingeführt und alles verlangsamt.",negative
+"Der Kundensupport hat mein Problem schnell gelöst.",positive
+"Der Kundensupport hat geantwortet, aber ich muss noch warten.",neutral
+"Der Kundensupport hat meine Nachrichten tagelang ignoriert.",negative
+"Dieser Laptop fühlt sich schnell und zuverlässig an.",positive
+"Dieser Laptop ist für einfache Büroaufgaben in Ordnung.",neutral
+"Dieser Laptop friert bei normaler Nutzung ein.",negative
+"Ich bin von der Akkulaufzeit beeindruckt.",positive
+"Die Akkulaufzeit ist für diesen Preis durchschnittlich.",neutral
+"Der Akku ist schon nach ein paar Stunden leer.",negative
+"Die Audioqualität ist satt und klar.",positive
+"Die Audioqualität ist für gelegentliches Hören akzeptabel.",neutral
+"Die Audioqualität ist verzerrt und verrauscht.",negative
+"Die Einrichtung war einfach und alles funktionierte beim ersten Versuch.",positive
+"Die Einrichtung hat etwas Zeit gekostet, aber am Ende hat es funktioniert.",neutral
+"Die Einrichtung war verwirrend und ist mehrfach fehlgeschlagen.",negative
+"Diese Kamera macht wunderschöne Fotos.",positive
+"Diese Kamera funktioniert bei Tageslicht wie erwartet.",neutral
+"Diese Kamera produziert selbst bei gutem Licht unscharfe Bilder.",negative
+"Die Benutzeroberfläche ist sauber und intuitiv.",positive
+"Die Benutzeroberfläche ist nutzbar, sobald man weiß, wo alles ist.",neutral
+"Die Benutzeroberfläche ist überladen und frustrierend.",negative
+"Der Versand war schneller als versprochen.",positive
+"Der Versand kam am geplanten Datum an.",neutral
+"Der Versand hat sich ohne Erklärung zweimal verspätet.",negative
+"Das Material fühlt sich hochwertig und langlebig an.",positive
+"Das Material fühlt sich normal an, nichts Besonderes.",neutral
+"Das Material fühlt sich billig an und reißt leicht.",negative
+"Ich würde das auf jeden Fall wieder kaufen.",positive
+"Ich könnte das wieder kaufen, wenn der Preis stimmt.",neutral
+"Ich werde das nicht noch einmal kaufen.",negative
+"Die Leistung ist unter hoher Last ausgezeichnet.",positive
+"Die Leistung ist bei normalen Arbeitslasten stabil.",neutral
+"Die Leistung bricht selbst bei leichter Nutzung stark ein.",negative
+"Das Design wirkt modern und elegant.",positive
+"Das Design ist schlicht, aber funktional.",neutral
+"Das Design wirkt veraltet und unbeholfen.",negative
+"Dieser Kurs hat das Thema sehr klar erklärt.",positive
+"Dieser Kurs hat die Grundlagen ohne große Tiefe behandelt.",neutral
+"Dieser Kurs war unorganisiert und schwer nachzuvollziehen.",negative
+"Die App fühlt sich flüssig und reaktionsschnell an.",positive
+"Die App funktioniert, aber sie hat gelegentlich Verzögerungen.",neutral
+"Die App stürzt jedes Mal ab, wenn ich sie öffne.",negative
+"Diese Tastatur ist bei langen Sitzungen bequem.",positive
+"Diese Tastatur ist okay, wenn man sich daran gewöhnt hat.",neutral
+"Diese Tastatur hat klemmende Tasten und verpasst Eingaben.",negative
+"Ich schätze die durchdachte Verpackung.",positive
+"Die Verpackung war standardmäßig und unbeschädigt.",neutral
+"Die Verpackung kam zerrissen und schlecht geschützt an.",negative
+"Die Anweisungen waren klar und leicht zu befolgen.",positive
+"Die Anweisungen waren kurz, aber verständlich.",neutral
+"Die Anweisungen waren verwirrend und unvollständig.",negative
+"Dieser Service hat meine Erwartungen übertroffen.",positive
+"Dieser Service hat meine grundlegenden Erwartungen erfüllt.",neutral
+"Dieser Service hat nicht geliefert, was versprochen wurde.",negative
+"Die Farbe und das Finish sehen in echt großartig aus.",positive
+"Die Farbe ist etwas anders, aber akzeptabel.",neutral
+"Die Farbe ist völlig anders als in der Anzeige.",negative
+"Die neue Funktion ist wirklich nützlich.",positive
+"Die neue Funktion ist vorhanden, auch wenn ich sie selten nutze.",neutral
+"Die neue Funktion ist kaputt und unbrauchbar.",negative
+"Ich bin mit dem Gesamtwert zufrieden.",positive
+"Der Gesamtwert ist für den Preis fair.",neutral
+"Der Gesamtwert ist für den Preis schlecht.",negative
+"Die Navigation ist schnell und mühelos.",positive
+"Die Navigation ist nach etwas Übung okay.",neutral
+"Die Navigation ist langsam und unnötig kompliziert.",negative
+"Das Produkt wirkt gut verarbeitet.",positive
+"Das Produkt funktioniert, aber nichts sticht hervor.",neutral
+"Das Produkt wirkt schlecht verarbeitet.",negative
+"Das war eine angenehme Überraschung.",positive
+"Das war ungefähr das, was ich erwartet habe.",neutral
+"Das war eine riesige Enttäuschung.",negative
+"Mir gefällt, wie zuverlässig es bisher war.",positive
+"Es war größtenteils zuverlässig, mit kleineren Problemen.",neutral
+"Es war vom ersten Tag an unzuverlässig.",negative
+"Die Bedienelemente sind unkompliziert.",positive
+"Die Bedienelemente sind in Ordnung, sobald sie eingerichtet sind.",neutral
+"Die Bedienelemente sind inkonsistent und reagieren nicht.",negative
+"Das Endergebnis sieht fantastisch aus.",positive
+"Das Endergebnis ist für grundlegende Bedürfnisse akzeptabel.",neutral
+"Das Endergebnis wirkt schlampig und unfertig.",negative
+"Dieses Plugin integriert sich perfekt in meinen Workflow.",positive
+"Dieses Plugin lässt sich mit etwas manueller Anpassung integrieren.",neutral
+"Dieses Plugin stört meinen Workflow.",negative
+"Der Bildschirm ist hell und lebendig.",positive
+"Der Bildschirm ist in Innenräumen ordentlich.",neutral
+"Der Bildschirm ist dunkel und schwer lesbar.",negative
+"Alles daran wirkt ausgereift.",positive
+"Die meisten Teile sind in Ordnung, mit ein paar Ecken und Kanten.",neutral
+"Alles daran wirkt überhastet.",negative
+"Ich bin mit diesem Kauf wirklich zufrieden.",positive
+"Ich bin weder zufrieden noch unzufrieden.",neutral
+"Ich bin mit diesem Kauf sehr unzufrieden.",negative
+"Der Bezahlvorgang war schnell und einfach.",positive
+"Der Bezahlvorgang funktionierte nach einem erneuten Versuch.",neutral
+"Der Bezahlvorgang ist wiederholt fehlgeschlagen.",negative
+"Dieses Tool spart mir viel Zeit.",positive
+"Dieses Tool funktioniert nur für einfache Aufgaben.",neutral
+"Dieses Tool verschwendet mehr Zeit, als es spart.",negative
+"Die Verbesserungen sind offensichtlich und wertvoll.",positive
+"Die Verbesserungen sind klein, aber spürbar.",neutral
+"Die sogenannten Verbesserungen haben alles verschlechtert.",negative
+"Ich war von der Verarbeitungsqualität beeindruckt.",positive
+"Die Verarbeitungsqualität ist durchschnittlich.",neutral
+"Die Verarbeitungsqualität ist fragil und enttäuschend.",negative
+"Die Reaktionszeit ist ausgezeichnet.",positive
+"Die Reaktionszeit ist angemessen.",neutral
+"Die Reaktionszeit ist quälend langsam.",negative
+"Das hat meine Arbeit deutlich erleichtert.",positive
+"Das hatte nur wenig Einfluss auf meine Arbeit.",neutral
+"Das hat meine Arbeit erschwert.",negative
+"Der Geschmack ist reichhaltig und ausgewogen.",positive
+"Der Geschmack ist mild und gewöhnlich.",neutral
+"Der Geschmack ist unangenehm und bitter.",negative
+"Es erfüllt seinen Zweck, ohne herauszustechen.",neutral
+"Ich kann es verwenden, aber ich habe keine starke Meinung dazu.",neutral
+"Die Erfahrung war weder reibungslos noch schwierig.",neutral
+"Es funktioniert ähnlich wie andere Optionen in dieser Kategorie.",neutral
+"Das Ergebnis ist akzeptabel, aber nicht außergewöhnlich.",neutral
+"Für meine Bedürfnisse ist es größtenteils okay.",neutral
+"Diese Version ist anders, aber nicht besser oder schlechter.",neutral
+"Das neueste Update hat Funktionen entfernt, auf die ich angewiesen bin.",negative
+"Die Verbindung bricht zufällig immer wieder ab.",negative
+"Ich bin auf Fehler gestoßen, bevor ich die Einrichtung abschließen konnte.",negative

@@ -1,0 +1,43 @@
+text,sentiment
+"Dieses Plugin lässt sich mit etwas manueller Anpassung integrieren.",neutral
+"Dieses Plugin stört meinen Workflow.",negative
+"Der Bildschirm ist hell und lebendig.",positive
+"Der Bildschirm ist in Innenräumen ordentlich.",neutral
+"Der Bildschirm ist dunkel und schwer lesbar.",negative
+"Alles daran wirkt ausgereift.",positive
+"Die meisten Teile sind in Ordnung, mit ein paar Ecken und Kanten.",neutral
+"Alles daran wirkt überhastet.",negative
+"Ich bin mit diesem Kauf wirklich zufrieden.",positive
+"Ich bin weder zufrieden noch unzufrieden.",neutral
+"Ich bin mit diesem Kauf sehr unzufrieden.",negative
+"Der Bezahlvorgang war schnell und einfach.",positive
+"Der Bezahlvorgang funktionierte nach einem erneuten Versuch.",neutral
+"Der Bezahlvorgang ist wiederholt fehlgeschlagen.",negative
+"Dieses Tool spart mir viel Zeit.",positive
+"Dieses Tool funktioniert nur für einfache Aufgaben.",neutral
+"Dieses Tool verschwendet mehr Zeit, als es spart.",negative
+"Die Verbesserungen sind offensichtlich und wertvoll.",positive
+"Die Verbesserungen sind klein, aber spürbar.",neutral
+"Die sogenannten Verbesserungen haben alles verschlechtert.",negative
+"Ich war von der Verarbeitungsqualität beeindruckt.",positive
+"Die Verarbeitungsqualität ist durchschnittlich.",neutral
+"Die Verarbeitungsqualität ist fragil und enttäuschend.",negative
+"Die Reaktionszeit ist ausgezeichnet.",positive
+"Die Reaktionszeit ist angemessen.",neutral
+"Die Reaktionszeit ist quälend langsam.",negative
+"Das hat meine Arbeit deutlich erleichtert.",positive
+"Das hatte nur wenig Einfluss auf meine Arbeit.",neutral
+"Das hat meine Arbeit erschwert.",negative
+"Der Geschmack ist reichhaltig und ausgewogen.",positive
+"Der Geschmack ist mild und gewöhnlich.",neutral
+"Der Geschmack ist unangenehm und bitter.",negative
+"Es erfüllt seinen Zweck, ohne herauszustechen.",neutral
+"Ich kann es verwenden, aber ich habe keine starke Meinung dazu.",neutral
+"Die Erfahrung war weder reibungslos noch schwierig.",neutral
+"Es funktioniert ähnlich wie andere Optionen in dieser Kategorie.",neutral
+"Das Ergebnis ist akzeptabel, aber nicht außergewöhnlich.",neutral
+"Für meine Bedürfnisse ist es größtenteils okay.",neutral
+"Diese Version ist anders, aber nicht besser oder schlechter.",neutral
+"Das neueste Update hat Funktionen entfernt, auf die ich angewiesen bin.",negative
+"Die Verbindung bricht zufällig immer wieder ab.",negative
+"Ich bin auf Fehler gestoßen, bevor ich die Einrichtung abschließen konnte.",negative

@@ -1,127 +1,77 @@
-# German Text Preprocessing Pipeline
-# Import necessary libraries
+# German text preprocessing for sentiment analysis
+
 import re
 import unicodedata
-from pathlib import Path
-from typing import List, Dict
-from utils_de import read_text_file, write_text_file, create_db, insert_rows
 
-import nltk
 from nltk.corpus import stopwords
-from nltk.stem.snowball import GermanStemmer
 from nltk import word_tokenize
 
-# Attempt to import spaCy and load the German model
 try:
     import spacy
     nlp = spacy.load("de_core_news_sm")
 except Exception:
     nlp = None
 
-# Check NLTK resources
-# Run nltk.download("punkt"), nltk.download("stopwords") if not already downloaded
-STOPWORDS = set(stopwords.words("german"))
-stemmer = GermanStemmer()
 
-DB_PATH = Path(__file__).resolve().parents[1] / "data" / "processed_results_de.db"
+# Keep sentiment-relevant negations when removing stopwords.
+_NEGATION_WORDS = {
+    "nicht",
+    "kein",
+    "keine",
+    "keinen",
+    "keinem",
+    "keiner",
+    "keines",
+    "nie",
+    "niemals",
+    "weder",
+    "noch"
+}
 
-# Clean
+try:
+    _base_stopwords = set(stopwords.words("german"))
+except LookupError:
+    # Fallback if NLTK stopwords are unavailable in the runtime environment.
+    _base_stopwords = set()
+
+STOPWORDS = _base_stopwords - _NEGATION_WORDS
+
+
 def clean_text(text):
-    # Normalize unicode characters
-    text = unicodedata.normalize("NFKC", text)
-    text = text.lower()
-
-    # Remove URLs and mentions
+    text = unicodedata.normalize("NFKC", str(text)).lower()
     text = re.sub(r"http\S+|www\.\S+", "", text)
     text = re.sub(r"@\w+", "", text)
-
-    # Remove punctuation (Keep German Characters)
-    text = re.sub(r"[^a-z0-9\säöüß]", " ", text)
-    
-    # Remove whitespace
+    # Keep apostrophes and German letters for better sentiment context.
+    text = re.sub(r"[^a-z0-9\säöüß']", " ", text)
     text = re.sub(r"\s+", " ", text).strip()
-
     return text
 
-# Tokenize (Word)
+
 def tokenize_text(text):
-    # Use spaCy if available
     if nlp:
-        doc = nlp(text)
+        return [t.text for t in nlp(text)]
 
-        return [t.text for t in doc]
-    # Fallback
-    else:
+    try:
         return word_tokenize(text, language = "german")
+    except LookupError:
+        # Fallback if punkt tokenizer resource is missing.
+        return text.split()
 
-# Remove Stopwords
+
 def remove_stopwords(tokens):
     return [token for token in tokens if token not in STOPWORDS]
 
-# Stem Tokens
-def stem_tokens(tokens):
-    return [stemmer.stem(token) for token in tokens]
 
-# Lemmatize Tokens
 def lemmatize_tokens(tokens):
-    # Use spaCy lammas if abvailable
     if nlp:
         doc = nlp(" ".join(tokens))
         return [token.lemma_ for token in doc]
-    # No NLTK as fallback return message a tokens instead
-    else:
-        print("spaCy not available, returning original tokens as lemmas.")
-        return tokens
+    return tokens
 
-# File Processer
-def process_file(input_path):
-    # Read all lines from the input file
-    lines = read_text_file(input_path)
-    # List to store processed rows
-    processed_rows = []
 
-    # Process each line in the file
-    for line in lines:
-        cleaned = clean_text(line)           # Clean the text
-        tokens = tokenize_text(cleaned)      # Tokenize the cleaned text
-        tokens = remove_stopwords(tokens)    # Remove stopwords from tokens
-        lemmas = lemmatize_tokens(tokens)    # Lemmatize the tokens
-
-        # Append processed data as a dictionary
-        processed_rows.append(
-            {
-                "original": line,            # Original line
-                "cleaned": cleaned,          # Cleaned text
-                "tokens": tokens,            # List of tokens
-                "lemmas": lemmas             # List of lemmas
-            }
-        )
-    
-    # Create DB and insert rows with utils.py
-    create_db(DB_PATH, table_name = "processed_de")
-    insert_rows(DB_PATH, processed_rows, table_name = "processed_de")
-
-    # Preview the first 5 processed rows
-    for row in processed_rows[:5]:
-        print(f"Original: {row['original']}")    # Print original text
-        print(f"Cleaned: {row['cleaned']}")      # Print cleaned text
-        print(f"Tokens: {row['tokens']}")        # Print tokens
-        print(f"Lemmas: {row['lemmas']}")        # Print lemmas
-        print("-" * 40)                          # Print separator
-
-# Main Execution
-if __name__ == "__main__":
-    import argparse
-    
-    # Set up command-line argument parser
-    parser = argparse.ArgumentParser(description = "German Text Preprocessor")
-    # Add input file argument
-    parser.add_argument(
-        "--in", dest = "input", 
-        default = "../data/sample_de.txt", 
-        help = "input file path"
-    )
-    # Parse command-line arguments
-    args = parser.parse_args()
-    # Process the input file
-    process_file(args.input)
+def preprocess_text(text):
+    cleaned = clean_text(text)
+    tokens = tokenize_text(cleaned)
+    tokens = remove_stopwords(tokens)
+    lemmas = lemmatize_tokens(tokens)
+    return " ".join(lemmas)
