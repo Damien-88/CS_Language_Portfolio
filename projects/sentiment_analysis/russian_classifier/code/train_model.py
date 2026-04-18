@@ -1,4 +1,4 @@
-# ENGLISH SENTIMENT ANALYSIS MODEL TRAINING
+# RUSSIAN SENTIMENT ANALYSIS MODEL TRAINING
 
 # IMPORTS
 # Data Handling
@@ -18,18 +18,18 @@ from sklearn.metrics import accuracy_score, classification_report # For evaluati
 import pickle
 
 # Preprocessing Pipeline
-from projects.sentiment_analysis.russian_classifier.code.preprocess_ru import preprocess_text
+from preprocess_ru import preprocess_text
 
 # FILE PATHS
 BASE_DIR = Path(__file__).resolve().parents[1] # Base directory
 DATA_DIR = BASE_DIR / "data" # Data folder
-DATA_FILE = DATA_DIR / "train_en.csv" # Input data
-MODEL_FILE = DATA_DIR / "sentiment_model.pkl" # Output model
-VECTORIZER_FILE = DATA_DIR / "vectorizer_en.pkl" # Output vectorizer
+DATA_FILE = DATA_DIR / "train_ru.csv" # Input data
+MODEL_FILE = DATA_DIR / "sentiment_model_ru.pkl" # Output model
+VECTORIZER_FILE = DATA_DIR / "vectorizer_ru.pkl" # Output vectorizer
 
 
 # LOAD DATA
-df = pd.read_csv(DATA_FILE) # Load the dataset
+df = pd.read_csv(DATA_FILE, encoding = "utf-8") # Load the dataset
 df = df[["text", "sentiment"]] # Keep only relevant columns
 
 # Map labels to numeric values
@@ -73,7 +73,8 @@ vectorizer = TfidfVectorizer(
     ngram_range = (1, 2), # Unigrams and bigrams
     min_df = 2, # Reduce noisy one-off terms
     max_df = 0.9, # Remove very common terms
-    sublinear_tf = True # Use sublinear term frequency scaling
+    sublinear_tf = True, # Use sublinear term frequency scaling
+    token_pattern = r"(?u)\b\w+\b" # Token pattern to include single-character words
 )
 
 # Fit vectorizer on training data and transform train and test sets

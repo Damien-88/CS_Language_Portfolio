@@ -29,7 +29,7 @@ VECTORIZER_FILE = DATA_DIR / "vectorizer_en.pkl" # Output vectorizer
 
 
 # LOAD DATA
-df = pd.read_csv(DATA_FILE) # Load the dataset
+df = pd.read_csv(DATA_FILE, encoding = "utf-8") # Load the dataset
 df = df[["text", "sentiment"]] # Keep only relevant columns
 
 # Map labels to numeric values

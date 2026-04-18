@@ -1,73 +1,89 @@
-# English text preprocessing for sentiment analysis
+# Russian text preprocessing module for sentiment analysis.
 
-import re # Regular expressions for text cleaning
-import unicodedata # Unicode normalization
+import re  # Pattern-based text cleanup.
+import unicodedata  # Unicode normalization helpers.
 
-from nltk.corpus import stopwords # Stopword list for English
-from nltk.stem import WordNetLemmatizer # Lemmatizer for reducing words to their base form
-from nltk import word_tokenize # Tokenizer for splitting text into words
+from nltk.corpus import stopwords  # Russian stopword list support.
+from nltk import word_tokenize  # Fallback tokenizer.
 
-# Attempt to load spaCy for improved tokenization and lemmatization.
+# Try to load spaCy for better tokenization and lemmatization.
 try:
-    import spacy
-    nlp = spacy.load("en_core_web_sm")
-# If spaCy is not available, fall back to NLTK-based processing.
-except Exception:
-    nlp = None
+    import spacy  # Import spaCy only if available.
+    nlp = spacy.load("ru_core_news_sm")  # Load small Russian language model.
+except (ImportError, OSError):  # Handle missing package/model.
+    nlp = None  # Indicates spaCy is unavailable.
 
 
-# Keep key sentiment negations even when removing stopwords.
-_NEGATION_WORDS = {"no", "not", "nor", "never", "none", "nobody", "nothing", "neither", "nowhere", "hardly", "scarcely", "barely"}
+# Keep sentiment-relevant negation words when removing stopwords.
+_NEGATION_WORDS = {
+    "не",  # Basic negation particle.
+    "нет",  # Direct negation meaning "no".
+    "ни",  # Particle for negative constructions.
+    "никогда",  # Negation adverb meaning "never".
+    "никто",  # Negative pronoun meaning "nobody".
+    "ничто",  # Negative pronoun meaning "nothing".
+    "нигде",  # Negative adverb meaning "nowhere".
+    "никуда",  # Negative adverb meaning "to nowhere".
+    "никак",  # Negative adverb meaning "in no way".
+    "нисколько",  # Negative quantifier meaning "not at all".
+}
 
+# Try loading Russian stopwords from NLTK corpus data.
 try:
-    _base_stopwords = set(stopwords.words("english"))
-except LookupError:
-    # Fallback if NLTK stopwords are not available in the environment.
-    _base_stopwords = set()
+    _base_stopwords = set(stopwords.words("russian"))  # Faster membership checks.
+except LookupError:  # If corpus data is missing.
+    _base_stopwords = set()  # Safe fallback for runtime portability.
 
-STOPWORDS = _base_stopwords - _NEGATION_WORDS
-lemmatizer = WordNetLemmatizer()
+STOPWORDS = _base_stopwords - _NEGATION_WORDS  # Preserve negation polarity cues.
 
-# Main preprocessing function that applies all steps in sequence.
-def clean_text(text):
-    text = unicodedata.normalize("NFKC", str(text)).lower() # Normalize unicode and convert to lowercase
-    text = re.sub(r"http\S+|www\.\S+", "", text) # Remove URLs
-    text = re.sub(r"@\w+", "", text) # Remove mentions
-    # Keep apostrophes to better preserve words like "don't".
-    text = re.sub(r"[^a-z0-9\s']", " ", text) # Remove special characters
-    text = re.sub(r"\s+", " ", text).strip() # Remove extra whitespace
-    
-    return text
 
-# TOKENIZATION, STOPWORD REMOVAL, AND LEMMATIZATION
-def tokenize_text(text):
-    # Use spaCy tokenizer if available for better handling of contractions and punctuation.
+def clean_text(text):  # Clean and normalize raw input text.
+    text = unicodedata.normalize("NFKC", str(text)).lower()  # Normalize and lowercase.
+    text = re.sub(r"http\S+|www\.\S+", "", text)  # Remove URLs.
+    text = re.sub(r"@\w+", "", text)  # Remove @mentions.
+    text = re.sub(r"[^a-zа-яё0-9\s']", " ", text)  # Keep letters/digits/whitespace/apostrophes.
+    text = re.sub(r"\s+", " ", text).strip()  # Collapse and trim whitespace.
+    return text  # Return cleaned text string.
+
+
+def tokenize_text(text):  # Tokenize cleaned text.
     if nlp:
-        return [t.text for t in nlp(text)]
+        return [t.text for t in nlp(text)]  # Use spaCy tokens when available.
 
-    # Fallback to NLTK word_tokenize, which may require downloading the 'punkt' resource.
     try:
-        return word_tokenize(text)
+        return word_tokenize(text, language = "russian")  # Use NLTK punkt tokenizer.
     except LookupError:
-        # Fallback if punkt tokenizer resource is missing.
-        return text.split()
+        return text.split()  # Fallback if punkt resource is missing.
 
-# Remove stopwords but keep negations.
-def remove_stopwords(tokens):
-    return [token for token in tokens if token not in STOPWORDS]
 
-# Lemmatize tokens using spaCy if available, otherwise use NLTK's WordNetLemmatizer.
-def lemmatize_tokens(tokens):
+def remove_stopwords(tokens):  # Remove low-information tokens.
+    return [token for token in tokens if token not in STOPWORDS]  # Keep sentiment-carrying terms.
+
+
+def lemmatize_tokens(tokens):  # Reduce inflected forms to base forms.
     if nlp:
-        doc = nlp(" ".join(tokens))
-        return [token.lemma_ for token in doc]
-    return [lemmatizer.lemmatize(token) for token in tokens]
+        doc = nlp(" ".join(tokens))  # Create a spaCy doc from tokens.
+        return [token.lemma_ for token in doc]  # Return lemmas.
+    return tokens  # Without spaCy, keep tokens unchanged.
 
-# Main preprocessing function that applies all steps in sequence.
-def preprocess_text(text):
-    cleaned = clean_text(text)
-    tokens = tokenize_text(cleaned)
-    tokens = remove_stopwords(tokens)
-    lemmas = lemmatize_tokens(tokens)
 
-    return " ".join(lemmas)
+def preprocess_text(text):  # Full pipeline for training and inference.
+    cleaned = clean_text(text)  # Cleanup and normalization.
+    tokens = tokenize_text(cleaned)  # Tokenization.
+    tokens = remove_stopwords(tokens)  # Stopword filtering.
+    lemmas = lemmatize_tokens(tokens)  # Lemmatization.
+    return " ".join(lemmas)  # Return vectorizer-ready string.
+
+
+if __name__ == "__main__":  # Small CLI demo for manual checks.
+    import argparse  # Imported only in CLI execution path.
+
+    parser = argparse.ArgumentParser(description = "Russian Text Preprocessor")  # Build parser.
+    parser.add_argument(
+        "--text",  # CLI flag name.
+        default = "Мне очень нравится этот продукт, он работает идеально!",  # Sample fallback sentence.
+        help = "input text",  # Help text shown in usage.
+    )
+    args = parser.parse_args()  # Parse provided command-line args.
+
+    print(preprocess_text(args.text))  # Print preprocessed output.

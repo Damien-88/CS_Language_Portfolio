@@ -52,12 +52,10 @@ def _proba_by_label(processed_text):
     return by_label
 
 
-# SINGLE PREDICTION FUNCTION
-def predict_sentiment(text, min_confidence = 0.45, neutral_margin = 0.12):
-    # Preprocess then score the text.
-    processed_text = preprocess_text(text) # Clean and normalize input
-    scores = _proba_by_label(processed_text) # Get per-label scores
-
+def label_from_scores(scores, min_confidence = 0.45, neutral_margin = 0.12):
+    """
+    Convert probability dictionary to final sentiment label.
+    """
     ranked = sorted(scores.items(), key = lambda x: x[1], reverse = True) # Highest score first
     top_label, top_prob = ranked[0] # Top prediction
     second_prob = ranked[1][1] # Runner-up score
@@ -68,20 +66,28 @@ def predict_sentiment(text, min_confidence = 0.45, neutral_margin = 0.12):
 
     return top_label
 
+
+# SINGLE PREDICTION FUNCTION
+def predict_sentiment(text, min_confidence = 0.45, neutral_margin = 0.12):
+    # Preprocess then score the text.
+    processed_text = preprocess_text(text) # Clean and normalize input
+    scores = _proba_by_label(processed_text) # Get per-label scores
+    return label_from_scores(scores, min_confidence, neutral_margin)
+
 # PROBABILITY PREDICTION
 def predict_proba(text):
     processed_text = preprocess_text(text) # Clean and normalize input
     return _proba_by_label(processed_text) # Return full score map
 
 # BATCH PREDICTION FUNCTION
-def predict_batch_detailed(text_list):
+def predict_batch_detailed(text_list, min_confidence = 0.45, neutral_margin = 0.12):
     results = [] # Accumulate per-text outputs
 
     # Process each text independently.
     for text in text_list:
         processed = preprocess_text(text) # Clean and normalize input
         scores = _proba_by_label(processed) # Get per-label scores
-        pred_label = predict_sentiment(text) # Get final sentiment
+        pred_label = label_from_scores(scores, min_confidence, neutral_margin) # Reuse computed scores
 
         results.append({
             "text": text, # Original text
