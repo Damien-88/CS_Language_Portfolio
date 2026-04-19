@@ -1,23 +1,30 @@
+
+"""
+Backup utility module for the English sentiment analysis classifier.
+
+Provides helper functions for data loading, saving, and feature extraction,
+along with shared NLP setup (stopwords, optional spaCy pipeline) that mirrors
+the preprocessing used in preprocess_en.py.
+
+Note: This module is not part of the active classifier runtime path.
+      The classifier uses preprocess_en.py and predict_model.py directly.
+"""
+
 # IMPORTS
 
 # Pathlib is used for safe, cross-platform file path handling
 from pathlib import Path
-
-# Pandas is used for loading and handling CSV datasets
-import pandas as pd
-
 # Pickle is used to save and load Python objects (models + vectorizers)
 import pickle
-
 # Regular expressions are used for text cleaning
 import re
-
 # Unicode normalization ensures consistent text representation
 import unicodedata
-
+# Pandas is used for loading and handling CSV datasets
+import pandas as pd
 # NLTK stopwords provide a list of common words to remove (e.g., "the", "is")
-import nltk
 from nltk.corpus import stopwords
+from nltk import word_tokenize
 
 
 # OPTIONAL NLP ENGINE (spaCy)
@@ -33,8 +40,35 @@ except Exception:
 
 # STOPWORDS INITIALIZATION
 
-# Load English stopwords from NLTK
-STOPWORDS = set(stopwords.words("english"))
+# Keep key negations so sentiment polarity is not lost.
+NEGATION_WORDS = {
+    "no",
+    "not",
+    "nor",
+    "never",
+    "none",
+    "nobody",
+    "nothing",
+    "neither",
+    "nowhere",
+    "hardly",
+    "scarcely",
+    "barely",
+}
+
+# Load English stopwords from NLTK with safe fallback.
+try:
+    base_stopwords = set(stopwords.words("english"))
+except LookupError:
+    base_stopwords = set()
+
+STOPWORDS = base_stopwords - NEGATION_WORDS
+
+# Precompile regex patterns once to avoid recompiling on each call.
+URL_RE = re.compile(r"http\S+|www\.\S+")
+MENTION_RE = re.compile(r"@\w+")
+NON_TEXT_RE = re.compile(r"[^a-z0-9\s']")
+WS_RE = re.compile(r"\s+")
 
 
 # DATA HANDLING FUNCTIONS
@@ -67,8 +101,11 @@ def save_csv(df, file_path):
     # Convert file path into Path object
     path = Path(file_path)
 
+    # Ensure destination directory exists before writing
+    path.parent.mkdir(parents=True, exist_ok=True)
+
     # Write DataFrame to CSV without index column
-    path.write_text(df.to_csv(index=False), encoding="utf-8")
+    df.to_csv(path, index=False, encoding="utf-8")
 
 
 def get_text_and_labels(df, text_col="text", label_col="sentiment"):
@@ -100,22 +137,22 @@ def clean_text(text):
     """
 
     # Normalize text to standard Unicode form
-    text = unicodedata.normalize("NFKC", text)
+    text = unicodedata.normalize("NFKC", str(text))
 
     # Convert text to lowercase for consistency
     text = text.lower()
 
     # Remove URLs (http, https, www)
-    text = re.sub(r"http\\S+|www\\.\\S+", "", text)
+    text = URL_RE.sub("", text)
 
     # Remove @mentions (e.g., Twitter handles)
-    text = re.sub(r"@\\w+", "", text)
+    text = MENTION_RE.sub("", text)
 
     # Remove punctuation and special characters
-    text = re.sub(r"[^a-z0-9\\s]", " ", text)
+    text = NON_TEXT_RE.sub(" ", text)
 
     # Remove extra whitespace
-    text = re.sub(r"\\s+", " ", text).strip()
+    text = WS_RE.sub(" ", text).strip()
 
     return text
 
@@ -132,8 +169,11 @@ def tokenize_text(text):
         doc = nlp(text)
         return [token.text for token in doc]
 
-    # Fallback: simple whitespace splitting
-    return text.split()
+    # Fallback: NLTK tokenization, then whitespace split if punkt is unavailable.
+    try:
+        return word_tokenize(text)
+    except LookupError:
+        return text.split()
 
 
 def remove_stopwords(tokens):

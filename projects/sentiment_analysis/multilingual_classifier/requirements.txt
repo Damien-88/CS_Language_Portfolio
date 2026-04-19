@@ -9,6 +9,18 @@ scikit-learn>=1.3.0
 pandas>=2.1.0
 numpy>=1.24.0
 
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.13.0
+
 # Optional (not required for production)
 jupyter>=1.0.0
 ipykernel>=6.0.0
+
+# Post-install resources (required by preprocessing/inference):
+# spaCy models:
+#   python -m spacy download en_core_web_sm
+#   python -m spacy download de_core_news_sm
+#   python -m spacy download ru_core_news_sm
+# NLTK resources:
+#   python -m nltk.downloader stopwords punkt wordnet

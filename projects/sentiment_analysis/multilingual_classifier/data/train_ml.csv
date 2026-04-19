@@ -1,167 +1,498 @@
 text,sentiment
-"I absolutely love this product, it works perfectly.",positive
-"This is the worst experience I have ever had.",negative
-"The movie was really enjoyable and fun.",positive
-"I am very disappointed with the quality.",negative
-"The service was okay, nothing special.",neutral
-"This book is fantastic and well written.",positive
-"I hate how slow this app is.",negative
-"The delivery was fast and everything was fine.",positive
-"I feel neutral about this update.",neutral
-"This is amazing, I am very satisfied.",positive
-"The product broke after two days.",negative
-"It was an average experience overall.",neutral
-"I really appreciate the fast support.",positive
-"The interface is confusing and hard to use.",negative
-"I am happy with my purchase.",positive
-"Nothing impressive, it feels ordinary.",neutral
-"This is exactly what I needed.",positive
-"The experience was terrible.",negative
-"It is just a standard product.",neutral
-"Absolutely wonderful experience.",positive
-"The app crashes constantly.",negative
-"I am satisfied but it could improve.",neutral
-"This is the best purchase I made.",positive
-"The quality is poor and cheap.",negative
-"It works well enough.",neutral
-"I am not impressed at all.",negative
-"This product is decent for the price.",neutral
-"I love how easy this system is.",positive
-"The results were disappointing.",negative
-"Everything works smoothly.",positive
-"I am extremely happy with this.",positive
-"The item is useless and broken.",negative
-"The experience was fine overall.",neutral
-"Highly recommend this product.",positive
-"It does not work properly.",negative
-"I feel okay about this.",neutral
-"This is excellent quality.",positive
-"Very bad experience overall.",negative
-"Nothing too special here.",neutral
-"I am satisfied with the results.",positive
-"This is frustrating and annoying.",negative
-"It is just fine.",neutral
-"Amazing performance and great design.",positive
-"I regret buying this.",negative
-"It is acceptable for daily use.",neutral
-"I really enjoy using this.",positive
-"This is not worth the money.",negative
-"The experience is average.",neutral
-"I am very pleased with this.",positive
-"The product stopped working.",negative
-"It is neither good nor bad.",neutral
-"This is outstanding and impressive.",positive
-"I am unhappy with this purchase.",negative
-"It works as expected.",neutral
-"I highly recommend it.",positive
-"This is a complete failure.",negative
-"It is okay for basic use.",neutral
-"I love it so much.",positive
-"I would not buy this again.",negative
-"Everything is fine.",neutral
-"I really love this item.",positive
-"This is absolutely terrible.",negative
-"It works fine for me.",neutral
-"I am very happy with it.",positive
-"I regret purchasing this.",negative
-"The quality is excellent.",positive
-"It is not good at all.",negative
-"Nothing special about it.",neutral
-"I enjoy using this product.",positive
-"The experience was awful.",negative
-"It is okay I guess.",neutral
-"This is wonderful.",positive
-"I am disappointed.",negative
-"It performs well.",positive
-"It is just average.",neutral
-"This is the best ever.",positive
-"I hate this so much.",negative
-"It works as intended.",neutral
-"Very satisfied with it.",positive
-"This is not worth it.",negative
-"The update fixed every issue I had.",positive
-"The update changed a few settings, but it is manageable.",neutral
-"The update introduced new bugs and slowed everything down.",negative
-"Customer support solved my problem quickly.",positive
-"Customer support replied, but I still need to wait.",neutral
-"Customer support ignored my messages for days.",negative
-"This laptop feels fast and reliable.",positive
-"This laptop is fine for basic office tasks.",neutral
-"This laptop freezes during normal use.",negative
-"I am impressed by the battery life.",positive
-"The battery life is average for this price range.",neutral
-"The battery drains in just a couple of hours.",negative
-"The audio quality is rich and clear.",positive
-"The audio quality is acceptable for casual listening.",neutral
-"The audio quality is distorted and noisy.",negative
-"Setup was simple and everything worked on first try.",positive
-"Setup took some time, but it eventually worked.",neutral
-"Setup was confusing and failed multiple times.",negative
-"This camera takes beautiful photos.",positive
-"This camera performs as expected in daylight.",neutral
-"This camera produces blurry images even in good light.",negative
-"The interface is clean and intuitive.",positive
-"The interface is usable once you learn where things are.",neutral
-"The interface is cluttered and frustrating.",negative
-"Shipping was quicker than promised.",positive
-"Shipping arrived on the scheduled date.",neutral
-"Shipping was delayed twice without explanation.",negative
-"The material feels premium and durable.",positive
-"The material feels standard, nothing remarkable.",neutral
-"The material feels cheap and tears easily.",negative
-"I would definitely buy this again.",positive
-"I might buy this again if the price is right.",neutral
-"I will not buy this again.",negative
-"Performance is excellent under heavy load.",positive
-"Performance is steady for normal workloads.",neutral
-"Performance drops badly under light use.",negative
-"The design looks modern and elegant.",positive
-"The design is plain but functional.",neutral
-"The design looks outdated and awkward.",negative
-"This course explained the topic very clearly.",positive
-"This course covered the basics without much depth.",neutral
-"This course was disorganized and hard to follow.",negative
-"The app feels smooth and responsive.",positive
-"The app works, but it has occasional lag.",neutral
-"The app crashes every time I open it.",negative
-"This keyboard is comfortable for long sessions.",positive
-"This keyboard is okay once you adjust to it.",neutral
-"This keyboard has sticky keys and missed inputs.",negative
-"I appreciate the thoughtful packaging.",positive
-"The packaging was standard and undamaged.",neutral
-"The packaging arrived torn and poorly protected.",negative
-"The instructions were clear and easy to follow.",positive
-"The instructions were brief but understandable.",neutral
-"The instructions were confusing and incomplete.",negative
-"This service exceeded my expectations.",positive
-"This service met my basic expectations.",neutral
-"This service failed to deliver what was promised.",negative
-"The color and finish look great in person.",positive
-"The color is slightly different but acceptable.",neutral
-"The color is completely different from the listing.",negative
-"The new feature is genuinely useful.",positive
+This plugin integrates perfectly with my workflow.,positive
+Время работы батареи среднее для этого ценового диапазона.,neutral
+I really enjoy using this.,positive
+It has been mostly reliable with minor issues.,neutral
+It works as expected.,neutral
+I am disappointed.,negative
+Продукт кажется хорошо спроектированным.,positive
+Ich bereue diesen Kauf.,negative
+It is just average.,neutral
+Dieses Plugin integriert sich perfekt in meinen Workflow.,positive
+Я жалею о покупке этого.,negative
+Вкус насыщенный и сбалансированный.,positive
+The audio quality is rich and clear.,positive
+Das Produkt hat aufgehört zu funktionieren.,negative
+Качество сборки среднее.,neutral
+Everything is fine.,neutral
+"Настройка заняла некоторое время, но в итоге все заработало.",neutral
+The final result looks sloppy and unfinished.,negative
+Für den täglichen Gebrauch ist es akzeptabel.,neutral
+Ich bin enttäuscht.,negative
+"Продукт работает, но ничем не выделяется.",neutral
+Das war eine angenehme Überraschung.,positive
+Ich hasse das so sehr.,negative
+"Эта клавиатура нормальная, когда к ней привыкнешь.",neutral
+The delivery was fast and everything was fine.,positive
+Это был приятный сюрприз.,positive
+"Обновление изменило несколько настроек, но с этим можно жить.",neutral
+Das ist absolut schrecklich.,negative
+Sehr zufrieden damit.,positive
+Ich benutze das wirklich gerne.,positive
+The packaging was standard and undamaged.,neutral
+The final result is acceptable for basic needs.,neutral
+Die Bedienelemente sind unkompliziert.,positive
+It is just fine.,neutral
+"Ich könnte das wieder kaufen, wenn der Preis stimmt.",neutral
+I am satisfied but it could improve.,neutral
+"Новая функция есть, хотя я редко ею пользуюсь.",neutral
+I enjoy using this product.,positive
+Ich mag diesen Artikel wirklich sehr.,positive
+The product feels poorly made.,negative
+Этот инструмент экономит мне много времени.,positive
+Das ist herausragend und beeindruckend.,positive
+This was a huge disappointment.,negative
+Insgesamt war es eine durchschnittliche Erfahrung.,neutral
+"Доставка была быстрее, чем обещали.",positive
+The color is completely different from the listing.,negative
 "The new feature is present, though I rarely use it.",neutral
-"The new feature is broken and unusable.",negative
-"I am happy with the overall value.",positive
-"The overall value is fair for the price.",neutral
-"The overall value is poor for what you pay.",negative
-"Navigation is fast and effortless.",positive
-"Navigation is okay after some practice.",neutral
-"Navigation is slow and unnecessarily complicated.",negative
-"The product feels well engineered.",positive
+Это самое лучшее.,positive
+"Das ist großartig, ich bin sehr zufrieden.",positive
+"Der Service war okay, nichts Besonderes.",neutral
+This laptop freezes during normal use.,negative
+"Setup took some time, but it eventually worked.",neutral
+Навигация быстрая и легкая.,positive
+Это значительно упростило мою работу.,positive
+It is neither good nor bad.,neutral
+Ich kann dieses Produkt sehr empfehlen.,positive
+"Die App funktioniert, aber sie hat gelegentlich Verzögerungen.",neutral
+The instructions were clear and easy to follow.,positive
+This course covered the basics without much depth.,neutral
+Качество отличное.,positive
+Ich bin mit meinem Kauf zufrieden.,positive
+The material feels cheap and tears easily.,negative
+Very bad experience overall.,negative
+The controls are inconsistent and unresponsive.,negative
+"The service was okay, nothing special.",neutral
+The audio quality is acceptable for casual listening.,neutral
+Die Farbe und das Finish sehen in echt großartig aus.,positive
+"Das ist der beste Kauf, den ich gemacht habe.",positive
+Nichts Besonderes daran.,neutral
+Управление непоследовательное и неотзывчивое.,negative
+The audio quality is distorted and noisy.,negative
+Я глубоко недоволен этой покупкой.,negative
+"Die neue Funktion ist vorhanden, auch wenn ich sie selten nutze.",neutral
+Опыт средний.,neutral
+Производительность стабильная при обычных нагрузках.,neutral
+Производительность сильно падает даже при легком использовании.,negative
+"Ich bin zufrieden, aber es könnte besser sein.",neutral
+"Материал кажется обычным, ничего выдающегося.",neutral
+Die Erfahrung ist durchschnittlich.,neutral
+This keyboard has sticky keys and missed inputs.,negative
+It was an average experience overall.,neutral
+I hate how slow this app is.,negative
+Das Design wirkt veraltet und unbeholfen.,negative
+Das ist es nicht wert.,negative
+Diese Tastatur ist bei langen Sitzungen bequem.,positive
+"Инструкции были краткими, но понятными.",neutral
+Я недоволен этой покупкой.,negative
+I am impressed by the battery life.,positive
+Ich schätze die durchdachte Verpackung.,positive
+This product is decent for the price.,neutral
+It works as intended.,neutral
+Es ist nur ein Standardprodukt.,neutral
+Die Einrichtung war einfach und alles funktionierte beim ersten Versuch.,positive
+Es ist einfach in Ordnung.,neutral
+"Das ist genau das, was ich gebraucht habe.",positive
+Setup was simple and everything worked on first try.,positive
+This camera produces blurry images even in good light.,negative
+"Обновление исправило все проблемы, которые у меня были.",positive
+Интерфейс чистый и интуитивный.,positive
+I like how reliable it has been so far.,positive
+Я искренне доволен этой покупкой.,positive
+Dieser Kurs hat die Grundlagen ohne große Tiefe behandelt.,neutral
+Эта камера работает как ожидалось при дневном свете.,neutral
+Качество звука насыщенное и чистое.,positive
+Customer support ignored my messages for days.,negative
+Я не куплю это снова.,negative
+Dieses Buch ist fantastisch und gut geschrieben.,positive
+Управление понятное и прямолинейное.,positive
+This was about what I expected.,neutral
+Die Navigation ist nach etwas Übung okay.,neutral
+Nothing too special here.,neutral
+Общая ценность справедлива для этой цены.,neutral
+The experience was awful.,negative
+Shipping was delayed twice without explanation.,negative
+Это полный провал.,negative
+"Das Update hat ein paar Einstellungen geändert, aber es ist handhabbar.",neutral
+Так называемые улучшения сделали все хуже.,negative
+The controls are straightforward.,positive
+The item is useless and broken.,negative
+Die App fühlt sich flüssig und reaktionsschnell an.,positive
+I feel neutral about this update.,neutral
+Diese Kamera produziert selbst bei gutem Licht unscharfe Bilder.,negative
+Это почти не повлияло на мою работу.,neutral
+"Es war größtenteils zuverlässig, mit kleineren Problemen.",neutral
+Материал кажется дешевым и легко рвется.,negative
+Das Endergebnis ist für grundlegende Bedürfnisse akzeptabel.,neutral
+Die Verpackung kam zerrissen und schlecht geschützt an.,negative
+Die Erfahrung war insgesamt in Ordnung.,neutral
+The instructions were brief but understandable.,neutral
+Ich kann es sehr empfehlen.,positive
+Das war eine riesige Enttäuschung.,negative
+The movie was really enjoyable and fun.,positive
+It is just a standard product.,neutral
+Этот ноутбук кажется быстрым и надежным.,positive
+"Die Einrichtung hat etwas Zeit gekostet, aber am Ende hat es funktioniert.",neutral
+I hate this so much.,negative
+Я бы не купил это снова.,negative
+Die Navigation ist schnell und mühelos.,positive
+Der Kundensupport hat meine Nachrichten tagelang ignoriert.,negative
+Интерфейс перегруженный и раздражающий.,negative
+I am happy with the overall value.,positive
+"Он был в основном надежным, с мелкими проблемами.",neutral
+It is not good at all.,negative
+Die Benutzeroberfläche ist verwirrend und schwer zu bedienen.,negative
+The instructions were confusing and incomplete.,negative
+The overall value is fair for the price.,neutral
+Производительность отличная под высокой нагрузкой.,positive
+Процесс оформления заказа был быстрым и простым.,positive
+"Die Benutzeroberfläche ist nutzbar, sobald man weiß, wo alles ist.",neutral
+Für mich funktioniert es gut.,neutral
+Erstaunliche Leistung und tolles Design.,positive
+The overall value is poor for what you pay.,negative
+Die Einrichtung war verwirrend und ist mehrfach fehlgeschlagen.,negative
+Ich liebe es so sehr.,positive
+Я ценю продуманную упаковку.,positive
+Dieser Service hat meine Erwartungen übertroffen.,positive
+Das Produkt wirkt gut verarbeitet.,positive
+The experience was terrible.,negative
+Экран тусклый и его трудно читать.,negative
+The app crashes constantly.,negative
+The packaging arrived torn and poorly protected.,negative
+Das ist wunderbar.,positive
+Инструкции были запутанными и неполными.,negative
+Качество звука искаженное и шумное.,negative
+"Я жалею, что купил это.",negative
+Это совсем не хорошо.,negative
+The product feels well engineered.,positive
+Insgesamt eine sehr schlechte Erfahrung.,negative
+Die Benutzeroberfläche ist überladen und frustrierend.,negative
+Es war vom ersten Tag an unzuverlässig.,negative
+Es funktioniert gut genug.,neutral
+Ich bin damit okay.,neutral
+Эта клавиатура удобна для долгих сессий.,positive
+I am happy with my purchase.,positive
+This is a complete failure.,negative
+This is the best ever.,positive
+Процесс оформления заказа неоднократно завершался неудачей.,negative
+I am satisfied with the results.,positive
+Экран яркий и насыщенный.,positive
+Die Navigation ist langsam und unnötig kompliziert.,negative
+"Das war ungefähr das, was ich erwartet habe.",neutral
+Ich schätze den schnellen Support wirklich.,positive
+Das ist das Geld nicht wert.,negative
+Он работает хорошо.,positive
+У этой клавиатуры залипающие клавиши и пропуски нажатий.,negative
+Nothing special about it.,neutral
+This camera performs as expected in daylight.,neutral
+Die neue Funktion ist wirklich nützlich.,positive
+Setup was confusing and failed multiple times.,negative
+Ich bin damit äußerst zufrieden.,positive
+Я точно купил бы это снова.,positive
+Die Leistung ist bei normalen Arbeitslasten stabil.,neutral
+Dieser Laptop friert bei normaler Nutzung ein.,negative
+Die Anweisungen waren klar und leicht zu befolgen.,positive
+The app crashes every time I open it.,negative
+Das ist das Beste überhaupt.,positive
+Amazing performance and great design.,positive
+I really love this item.,positive
+Dieses Produkt ist für den Preis ordentlich.,neutral
+Упаковка была стандартной и без повреждений.,neutral
+Diese Kamera funktioniert bei Tageslicht wie erwartet.,neutral
+Dieser Laptop ist für einfache Büroaufgaben in Ordnung.,neutral
+Батарея разряжается всего за пару часов.,negative
+"Последнее обновление удалило функции, на которые я полагаюсь.",negative
+Der Kundensupport hat mein Problem schnell gelöst.,positive
+Для моих нужд это в целом нормально.,neutral
+Performance is excellent under heavy load.,positive
+Absolutely wonderful experience.,positive
+Ich bin mit diesem Kauf unzufrieden.,negative
+The design looks outdated and awkward.,negative
+Это замечательно.,positive
+Мне это очень нравится.,positive
+Это просто средне.,neutral
+"Diese Tastatur ist okay, wenn man sich daran gewöhnt hat.",neutral
+Он работает похоже на другие варианты в этой категории.,neutral
+Поддержка клиентов игнорировала мои сообщения несколько дней.,negative
+Es ist nur durchschnittlich.,neutral
+"Это было примерно тем, чего я ожидал.",neutral
+Новая функция сломана и непригодна к использованию.,negative
+I love how easy this system is.,positive
+Ich werde das nicht noch einmal kaufen.,negative
+This laptop feels fast and reliable.,positive
+"Ich bereue, das gekauft zu haben.",negative
+The interface is cluttered and frustrating.,negative
+Время отклика отличное.,positive
+I am not impressed at all.,negative
+Это не стоит своих денег.,negative
+"Das ist die schlimmste Erfahrung, die ich je gemacht habe.",negative
+Он был ненадежным с первого дня.,negative
+Улучшения очевидны и ценны.,positive
+"Дизайн простой, но функциональный.",neutral
+Das ist ein kompletter Fehlschlag.,negative
+Навигация нормальная после небольшой практики.,neutral
+Shipping arrived on the scheduled date.,neutral
+"Цвет полностью отличается от того, что в объявлении.",negative
+The battery life is average for this price range.,neutral
+Управление нормальное после настройки.,neutral
+Der Film war wirklich unterhaltsam und macht Spaß.,positive
+"Die Farbe ist etwas anders, aber akzeptabel.",neutral
+Вкус неприятный и горький.,negative
+I am very pleased with this.,positive
+Shipping was quicker than promised.,positive
+Das ist frustrierend und nervig.,negative
+"Das Update hat jedes Problem behoben, das ich hatte.",positive
+Es funktioniert nicht richtig.,negative
+It works fine for me.,neutral
+Der Akku ist schon nach ein paar Stunden leer.,negative
+Navigation is okay after some practice.,neutral
+Navigation is fast and effortless.,positive
+Alles ist in Ordnung.,neutral
+Очень доволен этим.,positive
+Все в этом выглядит сделанным наспех.,negative
+"Поддержка клиентов ответила, но мне все еще нужно ждать.",neutral
+Настройка была запутанной и несколько раз завершалась неудачей.,negative
+Этот сервис оправдал мои базовые ожидания.,neutral
+Diese Tastatur hat klemmende Tasten und verpasst Eingaben.,negative
+Этот курс охватил основы без особой глубины.,neutral
+This course was disorganized and hard to follow.,negative
+Мне нравится пользоваться этим продуктом.,positive
+Ich bin von der Qualität sehr enttäuscht.,negative
+Этот ноутбук зависает при обычном использовании.,negative
+It does not work properly.,negative
+Die Benutzeroberfläche ist sauber und intuitiv.,positive
+I am extremely happy with this.,positive
+Материал кажется премиальным и прочным.,positive
+Экран нормальный в помещении.,neutral
+Это абсолютно ужасно.,negative
+Вкус мягкий и обычный.,neutral
+The product broke after two days.,negative
+Die Lieferung war schnell und alles war in Ordnung.,positive
+Продукт перестал работать.,negative
+Performance drops badly under light use.,negative
+Инструкции были понятными и простыми для выполнения.,positive
+This is absolutely terrible.,negative
+Die Qualität ist hervorragend.,positive
+Diese Kamera macht wunderschöne Fotos.,positive
+Ich würde das nicht noch einmal kaufen.,negative
+Der Gesamtwert ist für den Preis fair.,neutral
+Я очень доволен этим.,positive
+The controls are fine once configured.,neutral
+The interface is usable once you learn where things are.,neutral
+"Улучшения незначительные, но заметные.",neutral
+Это того не стоит.,negative
+Это выдающееся и впечатляющее.,positive
+Это приемлемо для ежедневного использования.,neutral
+Я разочарован.,negative
+"Customer support replied, but I still need to wait.",neutral
+Die Leistung bricht selbst bei leichter Nutzung stark ein.,negative
+Es funktioniert wie vorgesehen.,neutral
+The quality is excellent.,positive
+I regret purchasing this.,negative
+Der Versand hat sich ohne Erklärung zweimal verspätet.,negative
+Упаковка пришла порванной и плохо защищенной.,negative
+Das Update hat neue Fehler eingeführt und alles verlangsamt.,negative
+I regret buying this.,negative
+Все в этом выглядит отполированным.,positive
+Обновление добавило новые баги и сильно все замедлило.,negative
+"The app works, but it has occasional lag.",neutral
+Everything works smoothly.,positive
+The app feels smooth and responsive.,positive
+It has been unreliable from day one.,negative
+"Настройка была простой, и все заработало с первой попытки.",positive
+Die Bedienelemente sind inkonsistent und reagieren nicht.,negative
+"This is amazing, I am very satisfied.",positive
+"Der Kundensupport hat geantwortet, aber ich muss noch warten.",neutral
+This plugin integrates with some manual adjustment.,neutral
+"I absolutely love this product, it works perfectly.",positive
+Der Versand kam am geplanten Datum an.,neutral
+Ich würde das auf jeden Fall wieder kaufen.,positive
+The update introduced new bugs and slowed everything down.,negative
+Ich bin überhaupt nicht beeindruckt.,negative
+Я настоятельно это рекомендую.,positive
+Этот инструмент работает только для простых задач.,neutral
+Доставку дважды задержали без объяснений.,negative
+Das Produkt wirkt schlecht verarbeitet.,negative
+This was a pleasant surprise.,positive
+I highly recommend it.,positive
+Die Audioqualität ist für gelegentliches Hören akzeptabel.,neutral
+The battery drains in just a couple of hours.,negative
+Die Akkulaufzeit ist für diesen Preis durchschnittlich.,neutral
+Этот плагин идеально интегрируется в мой рабочий процесс.,positive
+This is the worst experience I have ever had.,negative
+Этот курс очень ясно объяснил тему.,positive
+The update fixed every issue I had.,positive
+Für die grundlegende Nutzung ist es okay.,neutral
+"Цвет немного отличается, но приемлем.",neutral
+Соединение продолжает случайно обрываться.,negative
+Итоговый результат приемлем для базовых нужд.,neutral
+"Я, возможно, купил бы это снова, если цена будет подходящей.",neutral
+Продукт кажется плохо сделанным.,negative
+I would not buy this again.,negative
+This book is fantastic and well written.,positive
+"Das Design ist schlicht, aber funktional.",neutral
+I appreciate the thoughtful packaging.,positive
+Der Versand war schneller als versprochen.,positive
+Es funktioniert gut.,positive
+"Это ни хорошо, ни плохо.",neutral
+Alles läuft reibungslos.,positive
+Der Artikel ist nutzlos und kaputt.,negative
+The experience was fine overall.,neutral
+Die Farbe ist völlig anders als in der Anzeige.,negative
+Итоговый результат выглядит небрежным и незавершенным.,negative
+Этот плагин интегрируется с небольшой ручной настройкой.,neutral
+Этот сервис не предоставил обещанного.,negative
+Very satisfied with it.,positive
+It is okay for basic use.,neutral
+It works well enough.,neutral
+This is not worth the money.,negative
+Dieser Laptop fühlt sich schnell und zuverlässig an.,positive
+Die Audioqualität ist verzerrt und verrauscht.,negative
+It is okay I guess.,neutral
+Качество звука приемлемое для повседневного прослушивания.,neutral
+Цвет и отделка вживую выглядят отлично.,positive
+Hier nichts allzu Besonderes.,neutral
+"Die Anweisungen waren kurz, aber verständlich.",neutral
+Es funktioniert wie erwartet.,neutral
+Die Anweisungen waren verwirrend und unvollständig.,negative
+This service exceeded my expectations.,positive
+Das Material fühlt sich billig an und reißt leicht.,negative
+"Этот инструмент тратит больше времени, чем экономит.",negative
+This keyboard is okay once you adjust to it.,neutral
+"Опыт не был ни гладким, ни сложным.",neutral
+Навигация медленная и излишне сложная.,negative
+It performs well.,positive
+Ich nutze dieses Produkt gerne.,positive
+Das Endergebnis wirkt schlampig und unfertig.,negative
+Das ist ausgezeichnete Qualität.,positive
+Ich bin von der Akkulaufzeit beeindruckt.,positive
+Мне действительно нравится этим пользоваться.,positive
+"Интерфейс удобен, когда разберешься, где что находится.",neutral
+"Я могу этим пользоваться, но не испытываю сильных чувств.",neutral
+Работает как задумано.,neutral
+"Die App stürzt jedes Mal ab, wenn ich sie öffne.",negative
+"The material feels standard, nothing remarkable.",neutral
+Highly recommend this product.,positive
+The color and finish look great in person.,positive
+Ich bin mit den Ergebnissen zufrieden.,positive
+The final result looks fantastic.,positive
+Время отклика разумное.,neutral
+The design is plain but functional.,neutral
+The results were disappointing.,negative
+"Ich liebe dieses Produkt absolut, es funktioniert perfekt.",positive
+Мне действительно нравится этот товар.,positive
+"Я ни доволен, ни недоволен.",neutral
+Dieser Kurs hat das Thema sehr klar erklärt.,positive
+Для меня это работает нормально.,neutral
+"Я столкнулся с ошибками, прежде чем смог завершить настройку.",negative
+The color is slightly different but acceptable.,neutral
+Этот курс был неорганизованным и трудным для понимания.,negative
+"Es ist, denke ich, okay.",neutral
+Дизайн выглядит современно и элегантно.,positive
+"Результат приемлемый, но не выдающийся.",neutral
+Общая ценность низкая за такие деньги.,negative
+Das Material fühlt sich hochwertig und langlebig an.,positive
+This laptop is fine for basic office tasks.,neutral
+Дизайн выглядит устаревшим и неуклюжим.,negative
+Der Gesamtwert ist für den Preis schlecht.,negative
+This is excellent quality.,positive
+Это просто нормально.,neutral
+Все в порядке.,neutral
+Процесс оформления заказа сработал после одной повторной попытки.,neutral
+This service failed to deliver what was promised.,negative
+Работает как и ожидалось.,neutral
+The material feels premium and durable.,positive
+"Nichts Beeindruckendes, es wirkt gewöhnlich.",neutral
+Die Qualität ist schlecht und billig.,negative
+Customer support solved my problem quickly.,positive
+Die App stürzt ständig ab.,negative
+"Die Bedienelemente sind in Ordnung, sobald sie eingerichtet sind.",neutral
+Es ist überhaupt nicht gut.,negative
+Итоговый результат выглядит фантастически.,positive
+Это было огромное разочарование.,negative
+This is outstanding and impressive.,positive
+Меня впечатлило качество сборки.,positive
+Новая функция действительно полезна.,positive
+Navigation is slow and unnecessarily complicated.,negative
+Доставка пришла в запланированную дату.,neutral
+The design looks modern and elegant.,positive
+Я очень доволен этим.,positive
+The quality is poor and cheap.,negative
+I feel okay about this.,neutral
+"Ну, это нормально, наверное.",neutral
+This camera takes beautiful photos.,positive
+Die Verpackung war standardmäßig und unbeschädigt.,neutral
+Absolut wunderbare Erfahrung.,positive
+"Das Produkt funktioniert, aber nichts sticht hervor.",neutral
+"Mir gefällt, wie zuverlässig es bisher war.",positive
+Этот сервис превзошел мои ожидания.,positive
 "The product works, but nothing stands out.",neutral
-"The product feels poorly made.",negative
-"This was a pleasant surprise.",positive
-"This was about what I expected.",neutral
-"This was a huge disappointment.",negative
-"I like how reliable it has been so far.",positive
-"It has been mostly reliable with minor issues.",neutral
-"It has been unreliable from day one.",negative
-"The controls are straightforward.",positive
-"The controls are fine once configured.",neutral
-"The controls are inconsistent and unresponsive.",negative
-"The final result looks fantastic.",positive
-"The final result is acceptable for basic needs.",neutral
-"The final result looks sloppy and unfinished.",negative
-"This plugin integrates perfectly with my workflow.",positive
-"This plugin integrates with some manual adjustment.",neutral
+Das Design wirkt modern und elegant.,positive
+This is frustrating and annoying.,negative
+"Ich liebe, wie einfach dieses System ist.",positive
+I am very happy with it.,positive
+"Das Material fühlt sich normal an, nichts Besonderes.",neutral
+Die Erfahrung war furchtbar.,negative
+Поддержка клиентов быстро решила мою проблему.,positive
+This is the best purchase I made.,positive
+"Приложение работает, но иногда подтормаживает.",neutral
+This service met my basic expectations.,neutral
+Ich bin mit dem Gesamtwert zufrieden.,positive
+Das Produkt ist nach zwei Tagen kaputtgegangen.,negative
+Я доволен общей ценностью.,positive
+Die Erfahrung war schrecklich.,negative
+The product stopped working.,negative
+Die Ergebnisse waren enttäuschend.,negative
+Качество сборки хрупкое и разочаровывающее.,negative
+"Он делает свою работу, ничем не выделяясь.",neutral
+"Ich hasse, wie langsam diese App ist.",negative
+Эта камера выдает размытые снимки даже при хорошем освещении.,negative
+I would definitely buy this again.,positive
+This is not worth it.,negative
+"Большинство частей в порядке, с несколькими шероховатостями.",neutral
+Ich bin bei diesem Update neutral eingestellt.,neutral
+Время отклика мучительно медленное.,negative
+В этом нет ничего особенного.,neutral
+"The update changed a few settings, but it is manageable.",neutral
+Приложение ощущается плавным и отзывчивым.,positive
+Эта камера делает красивые фотографии.,positive
+I am very disappointed with the quality.,negative
+"Мне нравится, насколько надежным он был до сих пор.",positive
+"Приложение вылетает каждый раз, когда я его открываю.",negative
+The new feature is broken and unusable.,negative
+Dieser Service hat meine grundlegenden Erwartungen erfüllt.,neutral
+Ich bin sehr glücklich damit.,positive
+I will not buy this again.,negative
+Ich bin sehr zufrieden damit.,positive
+Это усложнило мою работу.,negative
+Опыт был отвратительным.,negative
+Потрясающая производительность и отличный дизайн.,positive
+Я так сильно это ненавижу.,negative
+The interface is clean and intuitive.,positive
+Dieser Kurs war unorganisiert und schwer nachzuvollziehen.,negative
+The interface is confusing and hard to use.,negative
+Die neue Funktion ist kaputt und unbrauchbar.,negative
+Die Audioqualität ist satt und klar.,positive
+This course explained the topic very clearly.,positive
+I might buy this again if the price is right.,neutral
+The experience is average.,neutral
+"Nothing impressive, it feels ordinary.",neutral
+This is exactly what I needed.,positive
+Es ist weder gut noch schlecht.,neutral
+"Dieser Service hat nicht geliefert, was versprochen wurde.",negative
+It is acceptable for daily use.,neutral
+Die Leistung ist unter hoher Last ausgezeichnet.,positive
+Этот плагин ломает мой рабочий процесс.,negative
+"Эта версия отличается, но не лучше и не хуже.",neutral
+Это нормально для базового использования.,neutral
+I am unhappy with this purchase.,negative
+Этот ноутбук подходит для базовых офисных задач.,neutral
+This is wonderful.,positive
+Performance is steady for normal workloads.,neutral
+This keyboard is comfortable for long sessions.,positive
+The new feature is genuinely useful.,positive
+Я впечатлен временем работы батареи.,positive
+I really appreciate the fast support.,positive
+I love it so much.,positive
+Das Endergebnis sieht fantastisch aus.,positive

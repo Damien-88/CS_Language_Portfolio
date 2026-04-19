@@ -1,4 +1,4 @@
-# Utility functions for the German sentiment analysis workflow.
+# Utility functions for the Russian sentiment analysis workflow.
 
 from pathlib import Path  # Cross-platform path handling.
 import pickle  # Model/vectorizer serialization.
@@ -6,39 +6,44 @@ import re  # Regex-based text cleanup.
 import unicodedata  # Unicode normalization utilities.
 
 import pandas as pd  # DataFrame loading and saving.
-from nltk.corpus import stopwords  # German stopword corpus.
+from nltk.corpus import stopwords  # Russian stopword corpus.
 from nltk import word_tokenize  # NLTK tokenizer fallback.
 
 # Try to enable spaCy for better tokenization and lemmatization quality.
 try:
     import spacy  # Import spaCy only if it exists in this environment.
-    nlp = spacy.load("de_core_news_sm")  # Load German model.
+    nlp = spacy.load("ru_core_news_sm")  # Load Russian model.
 except (ImportError, OSError):  # Handle missing package or missing model files.
     nlp = None  # Use fallback logic when spaCy is unavailable.
 
 
 # Keep negation terms so sentiment polarity is not lost during stopword removal.
-_NEGATION_WORDS = {
-    "nicht",  # Core negation particle.
-    "kein",  # Negation determiner (masculine/neuter base).
-    "keine",  # Negation determiner form.
-    "keinen",  # Negation determiner form.
-    "keinem",  # Negation determiner form.
-    "keiner",  # Negation determiner form.
-    "keines",  # Negation determiner form.
-    "nie",  # Negation adverb meaning "never".
-    "niemals",  # Stronger negation adverb meaning "never".
-    "weder",  # Negation conjunction used in pair constructions.
-    "noch",  # Paired conjunction used with "weder".
+NEGATION_WORDS = {
+    "не",  # Core negation particle.
+    "нет",  # Direct negation meaning "no".
+    "ни",  # Particle for negative constructions.
+    "никогда",  # Negation adverb meaning "never".
+    "никто",  # Negative pronoun meaning "nobody".
+    "ничто",  # Negative pronoun meaning "nothing".
+    "нигде",  # Negative adverb meaning "nowhere".
+    "никуда",  # Negative adverb meaning "to nowhere".
+    "никак",  # Negative adverb meaning "in no way".
+    "нисколько",  # Negative quantifier meaning "not at all".
 }
 
-# Load German stopwords if NLTK resources are installed.
+# Load Russian stopwords if NLTK resources are installed.
 try:
-    _base_stopwords = set(stopwords.words("german"))  # Convert to set for O(1) membership tests.
+    base_stopwords = set(stopwords.words("russian"))  # O(1) membership checks.
 except LookupError:  # NLTK corpus not downloaded in current runtime.
-    _base_stopwords = set()  # Safe fallback to keep preprocessing runnable.
+    base_stopwords = set()  # Safe fallback to keep preprocessing runnable.
 
-STOPWORDS = _base_stopwords - _NEGATION_WORDS  # Keep negation cues for sentiment tasks.
+STOPWORDS = base_stopwords - NEGATION_WORDS  # Keep negation cues for sentiment tasks.
+
+# Precompile regex patterns once to avoid recompiling on each call.
+URL_RE = re.compile(r"http\S+|www\.\S+")
+MENTION_RE = re.compile(r"@\w+")
+NON_TEXT_RE = re.compile(r"[^a-zа-яё0-9\s']")
+WS_RE = re.compile(r"\s+")
 
 
 def load_csv(file_path):  # Load CSV into a DataFrame.
@@ -65,13 +70,13 @@ def get_text_and_labels(df, text_col="text", label_col="sentiment"):  # Split fr
     return df[text_col].values, df[label_col].values  # Return NumPy-backed arrays.
 
 
-def clean_text(text):  # Normalize and clean German text.
-    """Normalize and clean German text for downstream vectorization."""
+def clean_text(text):  # Normalize and clean Russian text.
+    """Normalize and clean Russian text for downstream vectorization."""
     text = unicodedata.normalize("NFKC", str(text)).lower()  # Normalize unicode and lowercase.
-    text = re.sub(r"http\S+|www\.\S+", "", text)  # Remove URLs.
-    text = re.sub(r"@\w+", "", text)  # Remove @mentions.
-    text = re.sub(r"[^a-z0-9\säöüß']", " ", text)  # Keep German letters, digits, spaces, apostrophes.
-    text = re.sub(r"\s+", " ", text).strip()  # Collapse repeated whitespace.
+    text = URL_RE.sub("", text)  # Remove URLs.
+    text = MENTION_RE.sub("", text)  # Remove @mentions.
+    text = NON_TEXT_RE.sub(" ", text)  # Keep Russian/Latin letters, digits, spaces, apostrophes.
+    text = WS_RE.sub(" ", text).strip()  # Collapse repeated whitespace.
     return text  # Return cleaned string.
 
 
@@ -81,7 +86,7 @@ def tokenize_text(text):  # Convert cleaned text to tokens.
         return [token.text for token in nlp(text)]  # Extract token text values.
 
     try:
-        return word_tokenize(text, language="german")  # Use NLTK tokenizer with German rules.
+        return word_tokenize(text, language="russian")  # Use NLTK tokenizer with Russian rules.
     except LookupError:  # Punkt resource may be missing in some environments.
         return text.split()  # Fallback tokenizer based on whitespace.
 
@@ -100,12 +105,21 @@ def lemmatize_tokens(tokens):  # Reduce words to lemma forms.
 
 
 def preprocess_text(text):  # Full preprocessing pipeline.
-    """Run full German preprocessing pipeline and return a single string."""
+    """Run full Russian preprocessing pipeline and return a single string."""
     cleaned = clean_text(text)  # Cleanup and normalize input.
+
+    # Fast path: run spaCy once and do filtering + lemmatization in one pass.
+    if nlp:
+        lemmas = [
+            token.lemma_
+            for token in nlp(cleaned)
+            if not token.is_space and token.text not in STOPWORDS
+        ]
+        return " ".join(lemmas)
+
     tokens = tokenize_text(cleaned)  # Tokenize normalized text.
     tokens = remove_stopwords(tokens)  # Drop stopwords except key negations.
-    lemmas = lemmatize_tokens(tokens)  # Lemmatize tokens where possible.
-    return " ".join(lemmas)  # Return vectorizer-ready sentence string.
+    return " ".join(tokens)  # Return vectorizer-ready sentence string.
 
 
 def save_model(model, file_path):  # Persist model artifact.

@@ -15,7 +15,7 @@ except (ImportError, OSError):  # Handle missing package/model.
 
 
 # Keep sentiment-relevant negation words when removing stopwords.
-_NEGATION_WORDS = {
+NEGATION_WORDS = {
     "не",  # Basic negation particle.
     "нет",  # Direct negation meaning "no".
     "ни",  # Particle for negative constructions.
@@ -30,11 +30,11 @@ _NEGATION_WORDS = {
 
 # Try loading Russian stopwords from NLTK corpus data.
 try:
-    _base_stopwords = set(stopwords.words("russian"))  # Faster membership checks.
+    base_stopwords = set(stopwords.words("russian"))  # Faster membership checks.
 except LookupError:  # If corpus data is missing.
-    _base_stopwords = set()  # Safe fallback for runtime portability.
+    base_stopwords = set()  # Safe fallback for runtime portability.
 
-STOPWORDS = _base_stopwords - _NEGATION_WORDS  # Preserve negation polarity cues.
+STOPWORDS = base_stopwords - NEGATION_WORDS  # Preserve negation polarity cues.
 
 
 def clean_text(text):  # Clean and normalize raw input text.

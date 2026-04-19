@@ -1,42 +1,125 @@
 text,sentiment
-"This plugin breaks my workflow.",negative
-"The screen is bright and vibrant.",positive
-"The screen is decent indoors.",neutral
-"The screen is dim and hard to read.",negative
-"Everything about this feels polished.",positive
-"Most parts are fine, with a few rough edges.",neutral
-"Everything about this feels rushed.",negative
-"I am genuinely satisfied with this purchase.",positive
-"I am neither satisfied nor dissatisfied.",neutral
-"I am deeply dissatisfied with this purchase.",negative
-"The checkout process was quick and simple.",positive
-"The checkout process worked after one retry.",neutral
-"The checkout process failed repeatedly.",negative
-"This tool saves me a lot of time.",positive
-"This tool works for simple tasks only.",neutral
-"This tool wastes more time than it saves.",negative
-"The improvements are obvious and valuable.",positive
-"The improvements are minor but noticeable.",neutral
-"The so-called improvements made things worse.",negative
-"I was impressed with the build quality.",positive
-"The build quality is average.",neutral
-"The build quality is fragile and disappointing.",negative
-"The response time is excellent.",positive
-"The response time is reasonable.",neutral
-"The response time is painfully slow.",negative
-"This made my work much easier.",positive
-"This had little impact on my work.",neutral
-"This made my work harder.",negative
-"The flavor is rich and balanced.",positive
-"The flavor is mild and ordinary.",neutral
-"The flavor is unpleasant and bitter.",negative
-"It does the job without standing out.",neutral
+I am deeply dissatisfied with this purchase.,negative
+Эта книга фантастическая и хорошо написана.,positive
+"Ничего впечатляющего, кажется обычным.",neutral
+"Ich kann es verwenden, aber ich habe keine starke Meinung dazu.",neutral
+Die Reaktionszeit ist quälend langsam.,negative
+The improvements are obvious and valuable.,positive
+Der Geschmack ist unangenehm und bitter.,negative
+Es funktioniert ähnlich wie andere Optionen in dieser Kategorie.,neutral
+Опыт был ужасным.,negative
+"Diese Version ist anders, aber nicht besser oder schlechter.",neutral
+"Доставка была быстрой, и все было в порядке.",positive
+The build quality is fragile and disappointing.,negative
+The flavor is unpleasant and bitter.,negative
+Интерфейс запутанный и сложный в использовании.,negative
 "I can use it, but I do not feel strongly about it.",neutral
-"The experience was neither smooth nor difficult.",neutral
-"It works similarly to other options in this category.",neutral
-"The outcome is acceptable, not exceptional.",neutral
+"Die meisten Teile sind in Ordnung, mit ein paar Ecken und Kanten.",neutral
+Das hat meine Arbeit deutlich erleichtert.,positive
+Я нормально к этому отношусь.,neutral
+"Это потрясающе, я очень доволен.",positive
+"Die Verbesserungen sind klein, aber spürbar.",neutral
+Я доволен своей покупкой.,positive
+The screen is decent indoors.,neutral
+Абсолютно замечательный опыт.,positive
+Это просто стандартный продукт.,neutral
 "For my needs, it is mostly okay.",neutral
-"This version is different but not better or worse.",neutral
-"The latest update removed features I rely on.",negative
-"The connection keeps dropping at random times.",negative
-"I ran into errors before I could finish setup.",negative
+"Ich bin auf Fehler gestoßen, bevor ich die Einrichtung abschließen konnte.",negative
+I am genuinely satisfied with this purchase.,positive
+The screen is bright and vibrant.,positive
+"Это худший опыт, который у меня когда-либо был.",negative
+Ich bin weder zufrieden noch unzufrieden.,neutral
+This had little impact on my work.,neutral
+"Сервис был нормальным, ничего особенного.",neutral
+Dieses Tool funktioniert nur für einfache Aufgaben.,neutral
+Это раздражает и бесит.,negative
+Продукт сломался через два дня.,negative
+Ich bin mit diesem Kauf sehr unzufrieden.,negative
+The connection keeps dropping at random times.,negative
+Der Geschmack ist reichhaltig und ausgewogen.,positive
+It works similarly to other options in this category.,neutral
+Все работает плавно.,positive
+The latest update removed features I rely on.,negative
+Работает достаточно хорошо.,neutral
+Dieses Plugin lässt sich mit etwas manueller Anpassung integrieren.,neutral
+Der Bezahlvorgang war schnell und einfach.,positive
+Die Verarbeitungsqualität ist durchschnittlich.,neutral
+"Das neueste Update hat Funktionen entfernt, auf die ich angewiesen bin.",negative
+The response time is excellent.,positive
+Die sogenannten Verbesserungen haben alles verschlechtert.,negative
+"Это именно то, что мне было нужно.",positive
+The response time is reasonable.,neutral
+I ran into errors before I could finish setup.,negative
+Приложение постоянно вылетает.,negative
+Очень рекомендую этот продукт.,positive
+Die Reaktionszeit ist angemessen.,neutral
+Everything about this feels rushed.,negative
+Dieses Tool spart mir viel Zeit.,positive
+Ich war von der Verarbeitungsqualität beeindruckt.,positive
+Я чрезвычайно доволен этим.,positive
+Die Verarbeitungsqualität ist fragil und enttäuschend.,negative
+The so-called improvements made things worse.,negative
+Ich bin mit diesem Kauf wirklich zufrieden.,positive
+Я доволен результатами.,positive
+Dieses Plugin stört meinen Workflow.,negative
+"Es erfüllt seinen Zweck, ohne herauszustechen.",neutral
+I am neither satisfied nor dissatisfied.,neutral
+The response time is painfully slow.,negative
+Alles daran wirkt ausgereift.,positive
+This version is different but not better or worse.,neutral
+The checkout process was quick and simple.,positive
+Für meine Bedürfnisse ist es größtenteils okay.,neutral
+This tool wastes more time than it saves.,negative
+Das hatte nur wenig Einfluss auf meine Arbeit.,neutral
+Die Verbesserungen sind offensichtlich und wertvoll.,positive
+"Most parts are fine, with a few rough edges.",neutral
+The experience was neither smooth nor difficult.,neutral
+Der Bildschirm ist in Innenräumen ordentlich.,neutral
+Der Bildschirm ist dunkel und schwer lesbar.,negative
+The checkout process failed repeatedly.,negative
+Alles daran wirkt überhastet.,negative
+"Это лучшая покупка, которую я сделал.",positive
+Этот товар бесполезен и сломан.,negative
+Фильм был действительно приятным и веселым.,positive
+"Я доволен, но можно улучшить.",neutral
+I was impressed with the build quality.,positive
+Я действительно ценю быструю поддержку.,positive
+Der Bildschirm ist hell und lebendig.,positive
+Я совсем не впечатлен.,negative
+The build quality is average.,neutral
+This plugin breaks my workflow.,negative
+Это отличное качество.,positive
+Этот продукт достойный за свою цену.,neutral
+"Dieses Tool verschwendet mehr Zeit, als es spart.",negative
+Он не работает должным образом.,negative
+Der Bezahlvorgang funktionierte nach einem erneuten Versuch.,neutral
+Результаты разочаровали.,negative
+"Я ненавижу, насколько медленно работает это приложение.",negative
+"Мне очень нравится этот продукт, он работает идеально.",positive
+Я нейтрально отношусь к этому обновлению.,neutral
+This made my work much easier.,positive
+Der Geschmack ist mild und gewöhnlich.,neutral
+Качество плохое и дешевое.,negative
+"Das Ergebnis ist akzeptabel, aber nicht außergewöhnlich.",neutral
+Die Reaktionszeit ist ausgezeichnet.,positive
+The flavor is mild and ordinary.,neutral
+This made my work harder.,negative
+"Мне нравится, насколько проста эта система.",positive
+Здесь нет ничего особенного.,neutral
+Everything about this feels polished.,positive
+Der Bezahlvorgang ist wiederholt fehlgeschlagen.,negative
+Die Erfahrung war weder reibungslos noch schwierig.,neutral
+The checkout process worked after one retry.,neutral
+Das hat meine Arbeit erschwert.,negative
+В целом опыт был нормальным.,neutral
+Я очень разочарован качеством.,negative
+This tool saves me a lot of time.,positive
+Очень плохой опыт в целом.,negative
+The improvements are minor but noticeable.,neutral
+The flavor is rich and balanced.,positive
+It does the job without standing out.,neutral
+"The outcome is acceptable, not exceptional.",neutral
+В целом это был средний опыт.,neutral
+The screen is dim and hard to read.,negative
+This tool works for simple tasks only.,neutral
+Die Verbindung bricht zufällig immer wieder ab.,negative
