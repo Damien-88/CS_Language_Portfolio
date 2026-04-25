@@ -19,8 +19,8 @@ Projects focus on:
 
 ## Phase 1: Foundations
 
-- [Text Preprocessor](projects/text-preprocessor)
-- [Sentiment Analysis](projects/sentiment-analysis)
+- [Text Preprocessor](projects/text_preprocessor)
+- [Sentiment Analysis](projects/sentiment_analysis)
 
 **Focus:**
 - Tokenization, normalization, stemming/lemmatization
@@ -30,8 +30,8 @@ Projects focus on:
 
 ## Phase 2: Linguistic Modeling
 
-- [Russian Morphology Analyzer](projects/russian-morphology-analyzer)
-- [German Compound Decomposition](projects/german-compound-decomposition)
+- [Russian Morphology Analyzer](projects/russian_morphology_analyzer)
+- [German Compound Decomposition](projects/german_compound_decomposition)
 
 **Focus:**
 - Russian morphology (case, gender, number, aspect)
@@ -42,8 +42,8 @@ Projects focus on:
 
 ## Phase 3: Applied NLP + Semantic Search
 
-- [Machine Translation](projects/machine-translation)
-- [Cross-Lingual Semantic Search Engine](projects/cross-lingual-search)
+- [Machine Translation](projects/machine_translation)
+- [Cross-Lingual Semantic Search Engine](projects/cross_lingual-search)
 
 **Focus:**
 - Transformer-based translation (RU/DE ↔ EN)
