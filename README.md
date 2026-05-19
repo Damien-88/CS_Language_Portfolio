@@ -1,121 +1,118 @@
 # CS_Language_Portfolio
 
-Portfolio showcasing projects in Computer Science, Computational Linguistics, and Human Language Technology (English, Russian, German).
-
+Portfolio showcasing projects blending Computer Science, Computational Linguistics, and Human Language Technology (English, Russian, German).
 
 # HLT / Computational Linguistics Portfolio (CS + ML + RU/DE/EN)
 
 Welcome! This portfolio showcases projects combining **Computer Science, Mathematics, Human Language Technology (HLT), and Computational Linguistics** using English, Russian, and German corpora.
 
-Each project is designed with a consistent internal structure:
+Projects focus on:
+- Natural Language Processing (NLP)
+- Multilingual language modeling
+- Linguistic structure analysis (morphology + syntax)
+- Machine learning systems
+- Semantic search and knowledge representation
 
-- `english/` → English-language implementation
-- `russian/` → Russian-language implementation
-- `german/` → German-language implementation
-- `multilingual/` → unified cross-lingual integration layer
+## Research & Linguistic Perspective
 
-This reflects a computational linguistics methodology:
+This portfolio emphasizes the relationship between:
+- linguistic structure
+- multilingual variation
+- machine learning behavior
+- computational system design
 
-> language-specific modeling → comparative linguistic analysis → multilingual fusion systems
+Projects are designed not only as NLP engineering systems, but also as controlled computational linguistics studies examining how language-specific structure affects modeling, retrieval, classification, and semantic representation.
 
+The portfolio progressively moves from:
+1. foundational preprocessing and classification
+2. morphology and syntax-aware linguistic modeling
+3. semantic retrieval and multilingual embeddings
+4. advanced cross-lingual intelligence systems
+
+This creates a unified progression from traditional NLP pipelines toward multilingual language intelligence architectures.
 
 # Portfolio Roadmap
 
-
 ## Phase 1: Foundations
 
-- [Text Preprocessor](projects/text_preprocessor/)
-- [Sentiment Analysis](projects/sentiment_analysis/)
-
-**Inside each project:**
-- `english/`
-- `russian/`
-- `german/`
-- `multilingual/`
+- [Text Preprocessor](projects/text_preprocessor)
+- [Sentiment Analysis](projects/sentiment_analysis)
 
 **Focus:**
 - Tokenization, normalization, stemming/lemmatization
-- Language-specific preprocessing differences
-- Morphological variation handling
-- Baseline sentiment classification per language
+- Multilingual sentiment classification (Russian/German)
+- Basic ML evaluation (accuracy, F1)
 
+**Linguistic Perspective:**
+- Comparison of preprocessing behavior across languages
+- Morphological variation effects on lexical feature spaces
+- Negation and normalization effects on sentiment modeling
 
 ## Phase 2: Linguistic Modeling
 
-- [Morphological & Syntax Analysis System](projects/morphological_syntax_analysis/)
-- [Compound & Morphology Study System](projects/compound_morphology_analysis/)
-
-**Inside each project:**
-- `english/`
-- `russian/`
-- `german/`
-- `multilingual/`
+- [Russian Morphology Analyzer](projects/russian_morphology_analyzer)
+- [German Compound Decomposition](projects/german_compound_decomposition)
 
 **Focus:**
-- English: syntactic parsing + baseline morphological structure
-- Russian: case system, aspect, inflectional morphology
-- German: compound decomposition + declension patterns
+- Russian morphology (case, gender, number, aspect)
+- German compound word decomposition
+- Rule-based + statistical hybrid methods
+- Linguistic error analysis (segmentation vs ambiguity vs morphology)
 
-**Comparative Linguistics Layer:**
-- cross-language morphological complexity comparison
-- linguistic error pattern analysis
-- rule-based vs statistical system performance comparison
-
+**Linguistic Perspective:**
+- Computational modeling of inflectional morphology
+- Surface-form ambiguity and lexical sparsity
+- Cross-language structural complexity comparison
 
 ## Phase 3: Applied NLP + Semantic Search
 
-- [Machine Translation System](projects/machine_translation/)
-- [Cross-Lingual Semantic Search Engine](projects/cross_lingual_search/)
-
-**Inside each project:**
-- `english/`
-- `russian/`
-- `german/`
-- `multilingual/`
+- [Machine Translation](projects/machine_translation)
+- [Cross-Lingual Semantic Search Engine](projects/cross_lingual_search)
 
 **Focus:**
-- Transformer-based translation (EN ↔ RU ↔ DE)
-- Multilingual embedding models (Sentence-BERT / LaBSE)
-- Cross-lingual semantic retrieval
-- Representation alignment across languages
+- Transformer-based translation (RU/DE ↔ EN)
+- Multilingual embeddings (Sentence-BERT / LaBSE)
+- Semantic retrieval across languages
+- Error analysis: morphology and synonym effects on retrieval
 
+**Linguistic Perspective:**
+- Cross-lingual semantic alignment
+- Representation learning across morphologically distinct languages
+- Retrieval degradation caused by morphology and synonym variation
 
 ## Phase 4: Advanced Language Intelligence
 
-- [Named Entity Recognition System](projects/named_entity_recognition/)
-- [Speech-to-Text Pipeline](projects/speech_to_text/)
-- [Dependency Parsing & Syntax Analysis System](projects/dependency_parsing/)
-
-**Inside each project:**
-- `english/`
-- `russian/`
-- `german/`
-- `multilingual/`
+- [Named Entity Recognition](projects/named_entity_recognition)
+- [Dependency-Aware NLP Pipeline](projects/dependency_nlp)
+- [Speech-to-Text Pipeline](projects/speech_to_text)
 
 **Focus:**
-- multilingual entity extraction (NER)
-- syntactic variation analysis across languages
-- ASR systems (wav2vec2 / Whisper)
-- phonetic vs morphological error analysis
+- Multilingual NER (Russian, German, English)
+- Syntax-aware NLP (dependency parsing + ambiguity resolution)
+- Speech recognition (wav2vec2 / Whisper)
+- Cross-linguistic error analysis (phonetics + syntax)
 
+**Linguistic Perspective:**
+- Interaction between syntax and semantic interpretation
+- Cross-language dependency structure variation
+- Phonetic ambiguity effects in multilingual ASR systems
 
 ## Phase 5: Flagship Capstone — Multilingual Intelligence Systems
 
-- [Multilingual Misinformation Detection System](projects/misinformation_detection/)
-- [Cross-Lingual Knowledge Graph Platform](projects/cross_lingual_knowledge_graph/)
-
-**Inside each project:**
-- `english/`
-- `russian/`
-- `german/`
-- `multilingual/`
+- [Multilingual Misinformation Detection System](projects/misinformation_detection)
+- [Cross-Lingual Knowledge Graph Platform](projects/cross_lingual_knowledge_graph)
 
 **Focus:**
-- language-specific misinformation patterns
-- multilingual entity extraction and normalization
-- graph-based knowledge representation (Neo4j)
-- cross-lingual query system (English interface → RU/DE sources)
+- End-to-end NLP pipelines (text + speech)
+- Multilingual misinformation detection with explanation layer
+- Entity extraction + relation modeling
+- Graph-based knowledge representation (Neo4j)
+- Cross-lingual query system (English → RU/DE sources)
 
+**Linguistic Perspective:**
+- Multilingual semantic consistency
+- Entity normalization across languages
+- Cross-lingual reasoning and knowledge representation
 
 # Skills Highlighted
 
@@ -123,14 +120,14 @@ This reflects a computational linguistics methodology:
 - Python
 - Linux
 - Git / GitHub
-- Docker
+- Docker (optional)
 
 ## NLP & Machine Learning
 - Hugging Face Transformers
 - spaCy / Stanza
 - NLTK
 - PyTorch / TensorFlow
-- Sentence-BERT / LaBSE
+- Sentence-BERT / LaBSE embeddings
 
 ## Data & Search Systems
 - SQL
@@ -140,50 +137,39 @@ This reflects a computational linguistics methodology:
 ## Knowledge Representation
 - Neo4j (Graph Databases)
 - Entity linking
-- Cross-lingual alignment systems
+- Relation extraction
 
 ## Languages
-- English (baseline NLP system)
-- Russian (morphologically rich system)
-- German (compound + syntax-heavy system)
+- Russian (morphology-rich analysis)
+- German (compound + syntax-heavy structure)
+- English (cross-lingual interface layer)
 
-## Standard Project Structure
+## How to Use
+Each project folder contains:  
+1. `code/` → scripts and notebooks  
+2. `data/` → sample datasets or preprocessing scripts  
+3. `README.md` → project documentation 
 
-Each project is organized as follows:
-
-projects/<project_name>/
-
-├── english/           # English implementation
-├── russian/           # Russian implementation
-├── german/            # German implementation
-├── multilingual/      # Cross-lingual integration layer
-
-├── shared/
-│   ├── evaluation/    # Metrics, scoring, benchmarks
-│   ├── utils/         # Shared preprocessing & helpers
-
-└── README.md          # Project documentation
-
-
-# Each Project README Includes:
-
+## Each Project README Includes:
 - Problem Statement  
-- Language Scope (EN / RU / DE / Multilingual)  
 - Linguistic Motivation  
 - Methods & Models  
 - Evaluation Metrics  
-- Error Analysis (language-specific comparisons)  
-- Cross-Language Observations  
-- Key Results  
+- Error Analysis (linguistic + ML)  
+- Key Results (examples, outputs, visualizations)  
 - Limitations & Future Work  
-
+- Relevance to NLP / Computational Linguistics  
+- Cross-Language Observations (when applicable)
 
 # Portfolio Goal
 
 This portfolio demonstrates the ability to:
+- Build multilingual NLP systems (RU/DE/EN)
+- Model linguistic structure computationally
+- Apply machine learning to real language data
+- Design semantic search and knowledge graph systems
+- Bridge computational linguistics + applied NLP + systems engineering
 
-- Build modular multilingual NLP systems
-- Model linguistic differences computationally
-- Compare language-specific NLP behavior scientifically
-- Integrate systems into unified cross-lingual architectures
-- Bridge computational linguistics and applied NLP engineering
+It is intended to demonstrate both:
+- practical NLP engineering ability
+- computational linguistics reasoning and multilingual language analysis
