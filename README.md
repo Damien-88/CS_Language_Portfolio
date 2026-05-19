@@ -5,11 +5,7 @@ Portfolio showcasing projects in Computer Science, Computational Linguistics, an
 
 # HLT / Computational Linguistics Portfolio (CS + ML + RU/DE/EN)
 
-<<<<<<< HEAD
 Welcome! This portfolio showcases projects combining **Computer Science, Mathematics, Human Language Technology (HLT), and Computational Linguistics** using English, Russian, and German corpora.
-=======
-This portfolio explores multilingual NLP systems using a **project-centric, modular architecture**.
->>>>>>> 6f435008647172b17d1bca97b19e041c03b89e81
 
 Each project is designed with a consistent internal structure:
 
