@@ -1,0 +1,4 @@
+pymorphy3>=2.0.2
+pymorphy3-dicts-ru>=2.4.417150.4580142
+ipywidgets>=8.1.0
+matplotlib>=3.7.0

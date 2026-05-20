@@ -1,0 +1,26 @@
+{
+  "люди": {
+    "lemma": "человек",
+    "part_of_speech": "noun",
+    "case": "nominative",
+    "number": "plural",
+    "gender": "masculine",
+    "analysis_source": "irregular"
+  },
+  "лучшего": {
+    "lemma": "лучший",
+    "part_of_speech": "adjective",
+    "case": "genitive",
+    "number": "singular",
+    "gender": "masculine",
+    "analysis_source": "irregular"
+  },
+  "дети": {
+    "lemma": "ребенок",
+    "part_of_speech": "noun",
+    "case": "nominative",
+    "number": "plural",
+    "gender": "masculine",
+    "analysis_source": "irregular"
+  }
+}

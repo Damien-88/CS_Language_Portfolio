@@ -1,0 +1,252 @@
+{
+  "книгами": {
+    "lemma": "книга",
+    "part_of_speech": "noun",
+    "case": "instrumental",
+    "number": "plural",
+    "gender": "feminine",
+    "analysis_source": "dictionary"
+  },
+  "книги": {
+    "lemma": "книга",
+    "part_of_speech": "noun",
+    "case": "accusative",
+    "number": "plural",
+    "gender": "feminine",
+    "analysis_source": "dictionary"
+  },
+  "читаю": {
+    "lemma": "читать",
+    "part_of_speech": "verb",
+    "tense": "present",
+    "aspect": "imperfective",
+    "person": "first",
+    "number": "singular",
+    "analysis_source": "dictionary"
+  },
+  "интересные": {
+    "lemma": "интересный",
+    "part_of_speech": "adjective",
+    "case": "accusative",
+    "number": "plural",
+    "analysis_source": "dictionary"
+  },
+  "красивого": {
+    "lemma": "красивый",
+    "part_of_speech": "adjective",
+    "case": "genitive",
+    "number": "singular",
+    "gender": "masculine",
+    "analysis_source": "dictionary"
+  },
+  "я": {
+    "lemma": "я",
+    "part_of_speech": "pronoun",
+    "person": "first",
+    "number": "singular",
+    "analysis_source": "dictionary"
+  },
+  "стола": {
+    "lemma": "стол",
+    "part_of_speech": "noun",
+    "case": "genitive",
+    "number": "singular",
+    "gender": "masculine",
+    "analysis_source": "dictionary"
+  },
+  "столы": {
+    "lemma": "стол",
+    "part_of_speech": "noun",
+    "case": "nominative",
+    "number": "plural",
+    "gender": "masculine",
+    "analysis_source": "dictionary"
+  },
+  "городе": {
+    "lemma": "город",
+    "part_of_speech": "noun",
+    "case": "prepositional",
+    "number": "singular",
+    "gender": "masculine",
+    "analysis_source": "dictionary"
+  },
+  "окна": {
+    "lemma": "окно",
+    "part_of_speech": "noun",
+    "case": "nominative",
+    "number": "plural",
+    "gender": "neuter",
+    "analysis_source": "dictionary"
+  },
+  "машине": {
+    "lemma": "машина",
+    "part_of_speech": "noun",
+    "case": "prepositional",
+    "number": "singular",
+    "gender": "feminine",
+    "analysis_source": "dictionary"
+  },
+  "друзей": {
+    "lemma": "друг",
+    "part_of_speech": "noun",
+    "case": "genitive",
+    "number": "plural",
+    "gender": "masculine",
+    "analysis_source": "dictionary"
+  },
+  "большая": {
+    "lemma": "большой",
+    "part_of_speech": "adjective",
+    "case": "nominative",
+    "number": "singular",
+    "gender": "feminine",
+    "analysis_source": "dictionary"
+  },
+  "большого": {
+    "lemma": "большой",
+    "part_of_speech": "adjective",
+    "case": "genitive",
+    "number": "singular",
+    "gender": "masculine",
+    "analysis_source": "dictionary"
+  },
+  "русские": {
+    "lemma": "русский",
+    "part_of_speech": "adjective",
+    "case": "nominative",
+    "number": "plural",
+    "analysis_source": "dictionary"
+  },
+  "русскими": {
+    "lemma": "русский",
+    "part_of_speech": "adjective",
+    "case": "instrumental",
+    "number": "plural",
+    "analysis_source": "dictionary"
+  },
+  "синее": {
+    "lemma": "синий",
+    "part_of_speech": "adjective",
+    "case": "nominative",
+    "number": "singular",
+    "gender": "neuter",
+    "analysis_source": "dictionary"
+  },
+  "старую": {
+    "lemma": "старый",
+    "part_of_speech": "adjective",
+    "case": "accusative",
+    "number": "singular",
+    "gender": "feminine",
+    "analysis_source": "dictionary"
+  },
+  "умного": {
+    "lemma": "умный",
+    "part_of_speech": "adjective",
+    "case": "genitive",
+    "number": "singular",
+    "gender": "masculine",
+    "analysis_source": "dictionary"
+  },
+  "интересной": {
+    "lemma": "интересный",
+    "part_of_speech": "adjective",
+    "case": "genitive",
+    "number": "singular",
+    "gender": "feminine",
+    "analysis_source": "dictionary"
+  },
+  "добрые": {
+    "lemma": "добрый",
+    "part_of_speech": "adjective",
+    "case": "nominative",
+    "number": "plural",
+    "analysis_source": "dictionary"
+  },
+  "читал": {
+    "lemma": "читать",
+    "part_of_speech": "verb",
+    "tense": "past",
+    "aspect": "imperfective",
+    "number": "singular",
+    "analysis_source": "dictionary"
+  },
+  "читали": {
+    "lemma": "читать",
+    "part_of_speech": "verb",
+    "tense": "past",
+    "aspect": "imperfective",
+    "number": "plural",
+    "analysis_source": "dictionary"
+  },
+  "пишу": {
+    "lemma": "писать",
+    "part_of_speech": "verb",
+    "tense": "present",
+    "aspect": "imperfective",
+    "person": "first",
+    "number": "singular",
+    "analysis_source": "dictionary"
+  },
+  "пишет": {
+    "lemma": "писать",
+    "part_of_speech": "verb",
+    "tense": "present",
+    "aspect": "imperfective",
+    "person": "third",
+    "number": "singular",
+    "analysis_source": "dictionary"
+  },
+  "говорим": {
+    "lemma": "говорить",
+    "part_of_speech": "verb",
+    "tense": "present",
+    "aspect": "imperfective",
+    "person": "first",
+    "number": "plural",
+    "analysis_source": "dictionary"
+  },
+  "сказал": {
+    "lemma": "сказать",
+    "part_of_speech": "verb",
+    "tense": "past",
+    "aspect": "perfective",
+    "number": "singular",
+    "analysis_source": "dictionary"
+  },
+  "сделают": {
+    "lemma": "сделать",
+    "part_of_speech": "verb",
+    "tense": "future",
+    "aspect": "perfective",
+    "person": "third",
+    "number": "plural",
+    "analysis_source": "dictionary"
+  },
+  "видела": {
+    "lemma": "видеть",
+    "part_of_speech": "verb",
+    "tense": "past",
+    "aspect": "imperfective",
+    "number": "singular",
+    "analysis_source": "dictionary"
+  },
+  "работаете": {
+    "lemma": "работать",
+    "part_of_speech": "verb",
+    "tense": "present",
+    "aspect": "imperfective",
+    "person": "second",
+    "number": "plural",
+    "analysis_source": "dictionary"
+  },
+  "будем": {
+    "lemma": "быть",
+    "part_of_speech": "verb",
+    "tense": "future",
+    "aspect": "imperfective",
+    "person": "first",
+    "number": "plural",
+    "analysis_source": "dictionary"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "examples": 120,
+  "lemma_accuracy": 0.992,
+  "part_of_speech_accuracy": 1.0,
+  "case_accuracy": 0.989,
+  "gender_accuracy": 0.989,
+  "number_accuracy": 1.0,
+  "tense_accuracy": 1.0,
+  "aspect_accuracy": 1.0,
+  "person_accuracy": 1.0
+}
