@@ -35,8 +35,8 @@ This creates a unified progression from traditional NLP pipelines toward multili
 
 ## Phase 1: Foundations
 
-- [Text Preprocessor](projects/Text_Preprocessor/READ.ME.md)
-- [Sentiment Analysis](projects/Sentiment_Analysis/READ.ME.md)
+- [Text Preprocessor](projects/Text_Preprocessor)
+- [Sentiment Analysis](projects/Sentiment_Analysis)
 
 **Focus:**
 - Tokenization, normalization, stemming/lemmatization
@@ -50,8 +50,8 @@ This creates a unified progression from traditional NLP pipelines toward multili
 
 ## Phase 2: Linguistic Modeling
 
-- [Russian Morphology Analyzer](projects/Russian_Morphology_Analyzer/README.md)
-- [German Compound Decomposition](projects/German_Compound_Decomposition/README.md)
+- [Russian Morphology Analyzer](projects/Russian_Morphology_Analyzer)
+- [German Compound Decomposition](projects/German_Compound_Decomposition)
 
 **Focus:**
 - Russian morphology (case, gender, number, aspect)
@@ -66,8 +66,8 @@ This creates a unified progression from traditional NLP pipelines toward multili
 
 ## Phase 3: Applied NLP + Semantic Search
 
-- [Machine Translation](projects/Machine_Translation/README.md)
-- [Cross-Lingual Semantic Search Engine](projects/Cross_Lingual_Search/README.md)
+- [Machine Translation](projects/Machine_Translation)
+- [Cross-Lingual Semantic Search Engine](projects/Cross_Lingual_Search)
 
 **Focus:**
 - Transformer-based translation (RU/DE ↔ EN)
@@ -82,9 +82,9 @@ This creates a unified progression from traditional NLP pipelines toward multili
 
 ## Phase 4: Advanced Language Intelligence
 
-- [Named Entity Recognition](projects/Named_Entity_Recognition/README.md)
-- [Dependency-Aware NLP Pipeline](projects/Dependency_NLP/README.md)
-- [Speech-to-Text Pipeline](projects/Speech-to-Text_Pipeline/README.md)
+- [Named Entity Recognition](projects/Named_Entity_Recognition)
+- [Dependency-Aware NLP Pipeline](projects/Dependency_NLP)
+- [Speech-to-Text Pipeline](projects/Speech-to-Text_Pipeline)
 
 **Focus:**
 - Multilingual NER (Russian, German, English)
@@ -99,8 +99,8 @@ This creates a unified progression from traditional NLP pipelines toward multili
 
 ## Phase 5: Flagship Capstone — Multilingual Intelligence Systems
 
-- [Multilingual Misinformation Detection System](projects/Misinformation_Detection/README.md)
-- [Cross-Lingual Knowledge Graph Platform](projects/Cross_Lingual_Knowledge_Graph/README.md)
+- [Multilingual Misinformation Detection System](projects/Misinformation_Detection)
+- [Cross-Lingual Knowledge Graph Platform](projects/Cross_Lingual_Knowledge_Graph)
 
 **Focus:**
 - End-to-end NLP pipelines (text + speech)
