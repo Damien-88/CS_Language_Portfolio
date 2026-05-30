@@ -1,342 +1,111 @@
 # Russian Morphology Analyzer
 
-## Overview
+## Project Overview
+This project presents a linguistically grounded Russian morphological analysis system designed to model rich inflectional structure in production-style NLP workflows. The implementation combines rule-based analysis, dictionary resources, and statistical ambiguity handling to produce interpretable morphological outputs.
 
-This project implements a **Russian morphological analysis system** designed to computationally model the rich inflectional structure of the Russian language.
+The core deliverable is a modular analyzer pipeline that extracts lemmas and grammatical features for words, sentences, and batch inputs.
 
-The analyzer identifies and extracts:
-- Lemmas (base forms)
-- Part-of-speech tags
-- Grammatical case
-- Gender
-- Number
-- Verb tense and aspect
-- Morphological feature patterns
+## Problem Statement
+Russian inflectional complexity creates recurrent challenges for standard token-first NLP pipelines. Two core failure modes are especially relevant:
 
-The project combines:
-- rule-based linguistic analysis
-- statistical NLP methods
-- morphology-aware preprocessing pipelines
+1. Surface-form variability and lexical sparsity
+Russian lexical items can produce many inflected forms, fragmenting evidence across paradigms and reducing statistical consistency in downstream models.
 
-to study how Russian grammatical structure can be represented computationally for downstream NLP tasks.
+2. Morphological ambiguity under limited context
+Single surface forms can correspond to multiple grammatical analyses, and context-independent parsing may overgenerate candidate interpretations.
 
----
+In practical systems, these issues can reduce:
+- lemmatization reliability,
+- grammatical tagging accuracy,
+- robustness in downstream tasks such as parsing, retrieval, and MT alignment.
 
 ## Linguistic Motivation
+Russian grammatical information is encoded extensively in morphology rather than fixed word order or isolated function words.
 
-Russian is a **morphology-rich language** with extensive inflectional variation.
-
-Unlike English, grammatical information is frequently encoded through:
-- suffixes
-- inflectional endings
-- conjugation patterns
-- aspectual verb systems
-
-This creates several computational challenges:
-- large surface-form variability
-- lexical sparsity
-- morphological ambiguity
-- context-sensitive interpretation
-
-For example:
-
-| Surface Form | Lemma | Features |
-|---|---|---|
-| книгами | книга | instrumental plural |
-| читаю | читать | 1st person singular present |
-| красивого | красивый | masculine/neuter genitive singular |
-
-This project investigates how morphology-aware systems can:
-- recover normalized forms
-- identify grammatical structure
-- reduce ambiguity
-- improve downstream linguistic processing
-
----
-
-## Project Structure
-
-```text
-russian_morphology_analyzer/
-├── analyzer.py
-├── code/
-│   ├── __init__.py
-│   ├── analyzer.py
-│   ├── morphology_rules.py
-│   ├── lemmatizer.py
-│   ├── tokenizer.py
-│   ├── feature_extractor.py
-│   ├── evaluate.py
-│   ├── utils.py
-│   └── demo_ru.ipynb
-│
-├── data/
-│   ├── sample_sentences_ru.txt
-│   ├── morphology_dictionary.json
-│   ├── irregular_forms.json
-│   ├── evaluation_dataset.csv
-│   └── outputs/
-│
-├── requirements.txt
-└── README.md
-```
-
----
-
-## System Components
-
-### Tokenization (`tokenizer.py`)
-- Russian-aware tokenization
-- Unicode normalization
-- punctuation handling
-- Cyrillic-safe preprocessing
-
----
-
-### Lemmatization (`lemmatizer.py`)
-Converts inflected words into base dictionary forms.
-
-Example:
-```text
-книгами → книга
-читал → читать
-лучшего → лучший
-```
-
-Methods:
-- suffix stripping
-- morphological rule matching
-- dictionary lookup fallback
-
----
-
-### Morphological Rules (`morphology_rules.py`)
-Encodes linguistic rules for:
-- noun declension
-- adjective agreement
-- verb conjugation
-- grammatical case identification
-- aspect detection
-
-The rule system models:
-- nominative
-- genitive
-- dative
-- accusative
-- instrumental
-- prepositional
+### Key morphosyntactic properties
+1. Inflectional density
+Nouns, adjectives, and verbs carry rich grammatical information through endings and stem alternations.
 
-as well as:
-- singular/plural variation
-- gender agreement
-- tense/aspect distinctions
+2. Case and agreement systems
+Robust analysis requires explicit handling of case, number, gender, and agreement interactions.
 
----
+3. Aspect and conjugation behavior
+Verb interpretation often depends on tense, aspect, and conjugational patterns that are not trivially recoverable from surface forms.
 
-### Feature Extraction (`feature_extractor.py`)
-Extracts structured morphological information:
+4. Ambiguity under token-level analysis
+Forms such as стола can map to multiple grammatical interpretations without sentential cues.
 
-Example:
-```json
-{
-  "token": "книгами",
-  "lemma": "книга",
-  "part_of_speech": "noun",
-  "case": "instrumental",
-  "number": "plural",
-  "gender": "feminine"
-}
-```
+## Methods and Models
+The project implements a hybrid architecture that combines symbolic linguistic constraints with statistical heuristics.
 
----
+### 1. Tokenization and normalization
+- Cyrillic-safe preprocessing with Unicode-aware handling.
+- Punctuation and boundary normalization for reliable downstream rule application.
 
-### Analysis Pipeline (`analyzer.py`)
-Combines:
-1. tokenization
-2. normalization
-3. lemmatization
-4. rule matching
-5. feature extraction
+### 2. Lemmatization and lexical recovery
+- Suffix and rule-driven candidate generation.
+- Dictionary-backed fallback for irregular and non-trivial paradigms.
 
-Supports:
-- single-word analysis
-- sentence parsing
-- batch processing
+### 3. Morphological rule application
+- Declension and conjugation rule matching.
+- Feature inference for case, number, gender, tense, aspect, and part of speech.
 
----
+### 4. Candidate ranking and extraction
+- Heuristic/statistical ranking for ambiguous analyses.
+- Structured output generation for word-level and sentence-level workflows.
 
-## Example Usage
+## Error Analysis
+The system is designed to expose difficult morphology cases and provide interpretable failure categories.
 
-### Analyze a single word
+### Morphological ambiguity
+Certain forms map to multiple valid analyses. Without broader context, ambiguity may persist across equally plausible candidates.
 
-```python
-from analyzer import analyze_word
+### Irregular inflection
+Irregular paradigms and suppletive forms can reduce rule coverage and increase dictionary dependency.
 
-result = analyze_word("книгами")
+### Context-sensitive disambiguation limits
+Token-level analysis may miss sentence-level syntactic constraints needed for final interpretation.
 
-print(result)
-```
+### Coverage dependence
+Performance is sensitive to morphology dictionary breadth and exception-list quality.
 
-Output:
-```json
-{
-  "token": "книгами",
-  "lemma": "книга",
-  "part_of_speech": "noun",
-  "case": "instrumental",
-  "number": "plural",
-  "gender": "feminine"
-}
-```
+## Cross-Language Observations
+Russian morphology demonstrates a different complexity profile from lower-inflection languages and complements comparative work in German and multilingual projects.
 
----
+1. Russian vs English
+Russian encodes substantially more grammatical information morphologically, requiring deeper feature extraction before modeling.
 
-### Analyze a sentence
+2. Russian vs German
+Both are morphology-rich, but Russian declensional and aspectual behavior creates distinct ambiguity patterns compared to German compounding-focused complexity.
 
-```python
-from analyzer import analyze_sentence
+3. Multilingual relevance
+Morphology-aware normalization provides a foundation for consistent cross-lingual preprocessing and improved model alignment.
 
-text = "Я читаю интересные книги"
+## Practical Applications
+- Morphology-aware preprocessing for Russian NLP pipelines.
+- Improved lemmatization and feature extraction for search and IR.
+- Linguistically interpretable tagging for educational and diagnostic tools.
+- Better upstream normalization for sentiment, classification, and translation systems.
 
-results = analyze_sentence(text)
+## Repository Artifacts
+- analyzer.py: top-level analysis entry points.
+- code/analyzer.py: orchestrated analysis pipeline.
+- code/tokenizer.py: Russian-aware tokenization and normalization.
+- code/lemmatizer.py: lemma recovery logic.
+- code/morphology_rules.py: grammatical rule set and feature inference.
+- code/feature_extractor.py: structured feature output formatting.
+- code/evaluate.py: evaluation pipeline.
+- code/demo_ru.ipynb: interactive demonstration and diagnostics.
+- data/: dictionary resources, evaluation data, and output artifacts.
 
-for item in results:
-    print(item)
-```
+## Reproducibility Notes
+Recommended environment:
+- Python 3.10+
+- pymorphy3 and Russian dictionary resources
+- regex-compatible text preprocessing stack
+- notebook tooling for exploratory diagnostics and visualization
 
----
+Install dependencies from requirements and run evaluation scripts to reproduce baseline metrics.
 
-## Methods & Models
-
-This project uses a hybrid computational linguistics approach:
-
-### Rule-Based Components
-- declension pattern matching
-- suffix analysis
-- grammatical heuristics
-- exception dictionaries
-
-### Statistical / NLP Components
-- token frequency analysis
-- ambiguity reduction heuristics
-- morphological candidate ranking
-
-### NLP Libraries
-- pymorphy3
-- pymorphy3 dictionaries (Russian)
-- regex-based preprocessing
-- custom morphology rules
-- ipywidgets (optional notebook interactivity)
-
-The demo notebook also includes optional visualization cells that use `matplotlib`.
-
----
-
-## Demo Notebook
-
-`code/demo_ru.ipynb` includes:
-- single-word, sentence, and batch analysis
-- evaluation on labeled dataset
-- robustness checks (environment + sanity assertions)
-- standard morphology visualizations:
-  - per-feature accuracy
-  - POS confusion matrix
-  - analysis-source coverage
-
----
-
-## Evaluation Metrics
-
-System performance is evaluated using:
-
-- Lemmatization accuracy
-- Morphological tagging accuracy
-- Case identification accuracy
-- POS tagging consistency
-- Rule coverage rate
-
-Evaluation datasets include:
-- manually annotated Russian sentences
-- morphology benchmark examples
-- irregular inflection test cases
-
----
-
-## Error Analysis (Linguistic + ML)
-
-### Morphological Ambiguity
-Some Russian forms map to multiple grammatical interpretations.
-
-Example:
-```text
-стола
-```
-
-Possible interpretations:
-- genitive singular
-- accusative singular
-
----
-
-### Irregular Inflection
-Certain verbs and nouns do not follow standard declension patterns.
-
-Example:
-```text
-человек → люди
-```
-
----
-
-### Context-Dependent Interpretation
-Correct parsing may depend on sentence-level syntax rather than isolated tokens.
-
----
-
-### Lexical Sparsity
-Rich inflection increases vocabulary variability, reducing statistical consistency across forms.
-
----
-
-## Key Results
-
-The analyzer successfully:
-- identifies major Russian grammatical cases
-- normalizes inflected forms into lemmas
-- extracts interpretable linguistic features
-- models morphology-aware token structure
-
-The project demonstrates how rule-based and statistical methods can be combined for morphology-rich NLP systems.
-
----
-
-## Limitations
-
-- Limited contextual disambiguation
-- Rule-based systems may fail on rare irregular forms
-- Dependency-level syntax is not fully modeled
-- Performance depends on morphology dictionary coverage
-
----
-
-## Future Work
-
-Potential extensions include:
-- transformer-based morphological tagging
-- dependency-aware morphology analysis
-- probabilistic disambiguation models
-- cross-lingual morphology comparison (Russian vs German)
-- integration into downstream NLP pipelines
-
----
-
-## Relevance to NLP / Computational Linguistics
-
-This project demonstrates:
-- computational modeling of inflectional morphology
-- morphology-aware NLP preprocessing
-- rule-based linguistic system design
-- hybrid statistical + linguistic analysis methods
-- foundations for multilingual syntax and semantic systems
-
-It serves as a core Phase 2 project in the broader multilingual computational linguistics portfolio.
+## Conclusion
+This project demonstrates that Russian morphology analysis benefits from a hybrid strategy combining explicit linguistic rules, lexical resources, and statistical ranking. The resulting system offers interpretable structure, practical robustness, and direct utility for downstream NLP tasks in morphology-rich language settings.

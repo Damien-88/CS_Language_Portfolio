@@ -1,120 +1,108 @@
-# Sentiment Analysis Project
+# Sentiment Analysis
 
-## Overview
-This project focuses on building and comparing sentiment analysis classifiers across multiple language scopes:
-- English
-- German
-- Russian
-- Multilingual (English + German + Russian)
+## Project Overview
+This project presents a multilingual sentiment analysis system engineered for controlled cross-language comparison across English, German, Russian, and a combined multilingual setting. The implementation emphasizes consistency in model architecture while allowing language-specific preprocessing behavior where linguistic structure requires it.
 
-Each classifier predicts one of three sentiment classes:
-- negative
-- neutral
-- positive
+The core deliverable is a set of production-style classifier pipelines that predict three sentiment classes: negative, neutral, and positive.
 
-The primary goal is to create language-specific and multilingual pipelines that share a consistent machine learning foundation while using preprocessing tailored to each language.
+## Problem Statement
+Sentiment modeling quality is strongly constrained by linguistic variability across languages. Two recurring failure modes are central in this project:
 
----
+1. Lexical and morphological sparsity
+German compounding and Russian inflection increase surface-form diversity, making feature distributions sparser than in lower-morphology settings such as English.
+
+2. Cross-language representation mismatch
+In multilingual training, shared vector spaces can mix structurally different lexical signals, causing feature collisions and weaker class separability.
+
+In practical ML workflows, these issues can reduce:
+- classification stability across domains,
+- robustness to negation and context-poor inputs,
+- interpretability of model behavior across languages.
 
 ## Linguistic Motivation
-Sentiment classification behaves differently across languages due to structural linguistic variation:
+Sentiment is not encoded uniformly across languages. The same polarity signal can be realized through very different morphosyntactic patterns.
 
-- English: relatively low morphological complexity, with sentiment often expressed through explicit adjectives and adverbs.
-- German: compound words and inflection can compress sentiment-bearing information into single tokens, affecting feature sparsity in TF-IDF space.
-- Russian: rich inflectional morphology encodes sentiment cues through case, aspect, and verb conjugation, increasing variability in surface forms.
-- Multilingual setting: combining languages introduces vocabulary overlap noise and structural heterogeneity, making preprocessing alignment critical.
+### Key cross-linguistic properties
+1. English
+Sentiment cues are often explicit at the lexical level and comparatively stable under light normalization.
 
-This project investigates how a consistent ML model performs under these differing linguistic conditions.
+2. German
+Compounding and inflection can compress sentiment-bearing material into fewer but denser tokens, amplifying feature sparsity.
 
----
+3. Russian
+Inflectional morphology and syntactic flexibility increase surface variability, requiring stronger normalization to preserve sentiment signal.
 
-## Classifier Collection
+4. Multilingual mixture
+Joint training introduces vocabulary overlap noise and language interference effects that do not appear in monolingual pipelines.
 
-### English Classifier
-Path: `english_classifier/`
-- Uses English preprocessing and lexical normalization.
-- Trained with TF-IDF features and calibrated Logistic Regression.
-- Includes training, prediction, and notebook demo workflows.
+## Methods and Models
+The project uses a unified modeling backbone with language-aware preprocessing, enabling direct comparison between monolingual and multilingual configurations.
 
-### German Classifier
-Path: `german_classifier/`
-- Uses German-specific preprocessing (including umlaut-safe cleaning and German stopwords).
-- Trained with TF-IDF features and calibrated Logistic Regression.
-- Includes training, prediction, and notebook demo workflows.
+### 1. Language-specific preprocessing pipelines
+- Dedicated preprocessors for English, German, and Russian normalize text according to language-specific constraints.
+- A multilingual pipeline applies explicit language routing during training and inference.
 
-### Russian Classifier
-Path: `russian_classifier/`
-- Uses Russian-specific preprocessing (Cyrillic-aware cleaning and Russian stopwords).
-- Trained with TF-IDF features and calibrated Logistic Regression.
-- Includes training, prediction, and notebook demo workflows.
+### 2. Feature extraction
+- TF-IDF vectorization with unigrams and bigrams.
+- Controlled vocabulary size with max_features set to 10000.
 
-### Multilingual Classifier
-Path: `multilingual_classifier/`
-- Uses a language-aware preprocessing pipeline with support for English, German, and Russian.
-- Supports per-language preprocessing during training and inference.
-- Trained with TF-IDF features and calibrated Logistic Regression.
-- Includes class-based trainer/predictor modules and multilingual demo notebook workflows.
+### 3. Classification and calibration
+- Logistic Regression with class balancing and high-iteration convergence settings.
+- CalibratedClassifierCV with sigmoid calibration for improved probability reliability.
 
----
+### 4. Label schema consistency
+All pipelines share a fixed target label set: negative, neutral, positive. This maintains metric comparability across language tracks.
 
-## Shared Modeling Approach
-Across the classifiers, the modeling approach is intentionally consistent:
-- Feature extraction: TF-IDF (`max_features=10000`, unigrams + bigrams)
-- Model: Logistic Regression (`class_weight="balanced"`, `max_iter=2000`, `C=1.5`)
-- Probability calibration: `CalibratedClassifierCV(method="sigmoid", cv=3)`
-- Labels: `negative`, `neutral`, `positive`
+## Error Analysis
+The system surfaces language-dependent and cross-language error patterns that are critical for interview and production discussions.
 
-This consistency makes performance and behavior comparisons across language pipelines easier.
+### Negation sensitivity
+Short negation patterns such as not good and nicht gut can be inconsistently represented after preprocessing, especially in noisy text.
 
----
+### Morphological ambiguity
+German and Russian forms may hide sentiment-bearing lemmas behind inflection or compounding, reducing feature clarity.
 
-## Cross-Language Analysis
-Because all classifiers share the same modeling backbone, this project enables controlled comparison across languages.
-Key comparative dimensions include:
-- Feature sparsity effects: Morphologically rich languages (German, Russian) tend to produce higher lexical variability than English.
-- Tokenization sensitivity: Preprocessing differences have a larger impact on German and Russian due to compounding and inflection.
-- Multilingual interference: The combined model may introduce vocabulary collision and reduced class separability across languages.
-- Model robustness: Comparing performance across languages highlights whether performance gaps are driven by linguistic structure or dataset characteristics.
+### Neutral class overprediction
+Low-context inputs and short utterances frequently collapse into neutral due to weak polarity evidence.
 
-This setup allows the project to function as a simplified cross-linguistic NLP experiment framework.
+### Multilingual interference
+Shared feature space in the multilingual model can blur sentiment boundaries between languages with different lexical distributions.
 
----
+## Cross-Language Observations
+Model behavior is shaped as much by linguistic structure as by classifier choice.
 
-## Repository Purpose
-This directory serves as a language portfolio for sentiment analysis system creation.
-It demonstrates:
-- End-to-end classifier development per language
-- Preprocessing strategy differences by language
-- A progression from single-language systems to a multilingual classifier
-- Practical training, prediction, and notebook diagnostics workflows
+1. English
+Lower morphological variance typically yields cleaner lexical sentiment features and stronger baseline separability.
 
----
+2. German and Russian
+Higher morphological complexity increases token variability, making preprocessing quality a dominant performance factor.
 
-## Error Analysis Perspective
+3. Multilingual setting
+A common architecture is feasible, but language-aware preprocessing alignment is essential to control interference and preserve class signal.
 
-Across languages, common failure modes include:
-- Negation handling errors
-    - “not good” (EN), “nicht gut” (DE), and Russian negation structures may be inconsistently captured depending on tokenization.
-- Morphological ambiguity
-    - Russian inflection and German compounding can obscure sentiment-bearing root forms.
-- Neutral class confusion
-    - Short or context-poor sentences often collapse into neutral due to insufficient lexical signal.
-- Cross-language noise in multilingual model
-    - Shared vector space introduces ambiguity between similar surface tokens with different sentiment distributions across languages.
+This project therefore functions as a practical framework for studying how linguistic structure affects classical ML sentiment systems under a shared architecture.
 
-These errors are primarily driven by linguistic structure rather than model architecture.
+## Practical Applications
+- Multilingual customer feedback triage and monitoring.
+- Product and brand sentiment tracking across regions.
+- Baseline benchmarking for cross-lingual NLP model comparison.
+- Explainable diagnostics for language-specific preprocessing impact.
 
----
+## Repository Artifacts
+- english_classifier/: training, preprocessing, prediction, and demo assets for English.
+- german_classifier/: German sentiment pipeline with language-specific normalization.
+- russian_classifier/: Russian sentiment pipeline with Cyrillic-aware preprocessing.
+- multilingual_classifier/: joint-language sentiment pipeline with explicit language routing.
+- Sentiment_Analysis.docx: interview-oriented technical study guide.
 
-## Typical Workflow
-1. Prepare or update language dataset CSV files.
-2. Run the language-specific (or multilingual) training script.
-3. Save model and vectorizer artifacts in each classifier's `data/` directory.
-4. Run prediction modules for single, probability, or batch inference.
-5. Use demo notebooks for visual diagnostics and quick evaluation.
+## Reproducibility Notes
+Recommended environment:
+- Python 3.10+
+- scikit-learn for vectorization, classification, and calibration
+- pandas for dataset handling
+- notebook stack for exploratory diagnostics
 
----
+Run each classifier's training and prediction scripts within its subdirectory to ensure artifact paths resolve correctly.
 
-## Notes
-- Utility modules are maintained as backup helpers; active runtime paths use each classifier's main preprocessing and prediction modules.
-- The multilingual classifier is designed to align training-time and prediction-time preprocessing behavior for each language.
+## Conclusion
+This project demonstrates that consistent model architecture does not guarantee consistent cross-language behavior. By combining shared ML foundations with language-aware preprocessing, the system provides a strong, interpretable baseline for multilingual sentiment analysis and a practical platform for error analysis in linguistically diverse settings.
