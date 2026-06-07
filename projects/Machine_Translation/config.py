@@ -15,6 +15,14 @@ class LanguagePairConfig:
 
 
 @dataclass
+class PreprocessingConfig:
+    """Configuration for optional preprocessing steps."""
+    enable_morphological: bool = False  # Enable morphological preprocessing (German compounds)
+    decomposer_module: str = "default"  # "default", custom path, or None
+    preserve_original: bool = True  # Keep original text in output
+
+
+@dataclass
 class TranslationConfig:
     """Global translation configuration."""
     # Language pair models (source → target)
@@ -28,6 +36,13 @@ class TranslationConfig:
 
     # Model caching
     cache_dir: str = "./models/checkpoints"
+
+    # Preprocessing (optional, experimental)
+    preprocessing: PreprocessingConfig = None
+
+    def __post_init__(self):
+        if self.preprocessing is None:
+            self.preprocessing = PreprocessingConfig()
 
     @classmethod
     def default(cls) -> "TranslationConfig":
