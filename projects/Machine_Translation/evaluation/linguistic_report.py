@@ -27,12 +27,12 @@ class LinguisticEvaluationReport:
     sentence_count: int
 
     # Error summaries
-    total_errors: int
-    error_distribution: Dict[str, int]
+    total_errors: int = 0
+    error_distribution: Dict[str, int] = field(default_factory=dict)
 
     # Quality metrics
-    quality_distribution: Dict[str, int]
-    avg_errors_per_sentence: float
+    quality_distribution: Dict[str, int] = field(default_factory=dict)
+    avg_errors_per_sentence: float = 0.0
 
     # Linguistic patterns
     morphological_patterns: List[ErrorPattern] = field(default_factory=list)
