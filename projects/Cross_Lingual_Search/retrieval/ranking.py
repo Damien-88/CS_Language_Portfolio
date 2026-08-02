@@ -1,10 +1,12 @@
 """
 Ranking layer for cross-lingual semantic retrieval.
 This module reranks retrieved documents after FAISS similarity search.
-The goal is not to replace semantic similarity, but to allow additional
-linguistic and metadata-aware signals.
+The goal is not to replace semantic similarity, but to provide an
+extensible layer where additional linguistic and metadata-aware signals
+can be incorporated into the final ranking score.
 """
 
+from __future__ import annotations
 from dataclasses import dataclass
 from retrieval.semantic_search import SearchResult
 
@@ -41,9 +43,9 @@ class SemanticRanker:
                 )
             )
 
-
+        # Sort documents from highest to lowest score
         ranked_results.sort(
-            key = lambda x: x.final_score,
+            key = lambda result: result.final_score,
             reverse = True
         )
 
