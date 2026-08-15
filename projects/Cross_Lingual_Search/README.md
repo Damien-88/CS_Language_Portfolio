@@ -584,7 +584,10 @@ Cross_Lingual_Search/
 │   └── retrieval_errors.py
 
 ├── experiments/
+│   ├── cross_lingual_retrieval.py
 │   ├── translation_vs_embedding.py
+│   ├── german_compound_decomposition.py
+│   ├── semantic_space_visualization.py
 │   └── morphology_effects.py
 
 ├── demos/
@@ -592,7 +595,13 @@ Cross_Lingual_Search/
 │   ├── semantic_search_demo.ipynb
 │   ├── language_alignment.ipynb
 │   ├── retrieval_evaluation.ipynb
-│   └── linguistic_error_analysis.ipynb
+│   └── linguistics_error_analysis.ipynb
+
+├── tests/
+│   ├── test_doc_store.py
+│   ├── test_embeddings.py
+│   ├── test_vector_index.py
+│   └── test_translation_vs_embedding.py
 
 ├── README.md
 └── requirements.txt
@@ -663,11 +672,11 @@ Core:
 - numpy
 - pandas
 - matplotlib
+- scikit-learn (PCA for semantic space visualization)
 
 Optional:
 
 - umap-learn
-- scikit-learn
 
 
 # Reproducibility

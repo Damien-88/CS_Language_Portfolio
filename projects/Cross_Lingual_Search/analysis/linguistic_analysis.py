@@ -46,6 +46,21 @@ class LinguisticAnalyzer:
                 )    
             )
 
+        # Word order heuristic
+        elif self.possible_word_order_difference(retrieved_text, expected_text):
+            errors.append(
+                RetrievalError(
+                    category = RetrievalErrorCategory.WORD_ORDER,
+                    explanation = (
+                        "Retrieved and expected texts share the same words "
+                        "but differ in order"
+                    ),
+                    query = query,
+                    retrieved_text = retrieved_text,
+                    expected_text = expected_text
+                )
+            )
+
         # Morphological variation heuristic
         elif self.possible_morphology_difference(retrieved_text, expected_text):
             errors.append(
@@ -54,6 +69,21 @@ class LinguisticAnalyzer:
                     explanation = (
                         "Possible inflectional or morphological "
                         "variation detected"
+                    ),
+                    query = query,
+                    retrieved_text = retrieved_text,
+                    expected_text = expected_text
+                )
+            )
+
+        # Script-based language mismatch heuristic
+        elif self.possible_language_mismatch(retrieved_result, expected_text):
+            errors.append(
+                RetrievalError(
+                    category = RetrievalErrorCategory.LANGUAGE_MISMATCH,
+                    explanation = (
+                        "Retrieved document's language does not match the "
+                        "script used in the expected text"
                     ),
                     query = query,
                     retrieved_text = retrieved_text,
@@ -91,10 +121,41 @@ class LinguisticAnalyzer:
 
     def possible_morphology_difference(self, retrieved, expected):
         """
-        Lightweight heuristic for detecting possible morphological variation.
+        Lightweight heuristic for detecting possible morphological variation:
+        same length, but a different surface form (case included, since a
+        pure case difference is itself a valid morphological variant here).
         """
 
         return (
-            retrieved.lower() != expected.lower() and
+            retrieved != expected and
             len(retrieved) == len(expected)
         )
+
+    def possible_word_order_difference(self, retrieved, expected):
+        """
+        Lightweight heuristic for detecting possible word order differences:
+        both texts contain the same words but in a different sequence.
+        """
+
+        retrieved_words = retrieved.lower().split()
+        expected_words = expected.lower().split()
+
+        return (
+            retrieved_words != expected_words
+            and sorted(retrieved_words) == sorted(expected_words)
+        )
+
+    def possible_language_mismatch(self, retrieved_result, expected_text):
+        """
+        Lightweight heuristic for detecting a possible language mismatch.
+        Only distinguishes Cyrillic (Russian) from Latin-script languages,
+        since script is the most reliable signal available from raw text.
+        """
+
+        expected_is_russian = any(
+            "а" <= character <= "я" or character in "ёЁ"
+            for character in expected_text.lower()
+        )
+        retrieved_is_russian = retrieved_result.document.language == "Russian"
+
+        return expected_is_russian != retrieved_is_russian
