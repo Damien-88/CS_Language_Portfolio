@@ -4,15 +4,11 @@
 
 This project develops a **multilingual Named Entity Recognition (NER) system** for English, German, and Russian.
 
-The system identifies and classifies entities such as:
+The initial system identifies and classifies three entity types supported by the selected multilingual NER model:
 
-* **PERSON** — people and names
+* **PER** — people and names
 * **ORG** — organizations and institutions
 * **LOC** — locations
-* **GPE** — geopolitical entities
-* **DATE** — dates and temporal expressions
-* **EVENT** — named events
-* **PRODUCT** — products and named artifacts
 
 The project treats NER as both an NLP engineering problem and a **computational linguistics research problem**.
 
@@ -26,6 +22,8 @@ The central goal is to investigate how multilingual transformer-based NER system
 * named-entity conventions
 
 The project therefore combines model-based entity extraction with **cross-linguistic error analysis and entity normalization**.
+
+The initial model provides a deliberately limited entity taxonomy. Broader categories such as geopolitical entities, dates, events, and products may be investigated in future work using other models or task-specific fine-tuning.
 
 ---
 
@@ -81,11 +79,21 @@ but also investigate:
 
 The project investigates several controlled questions.
 
-### Q1 — Multilingual Entity Recognition
+## Q1 — Multilingual Entity Recognition
 
 Can transformer-based NER models reliably identify common entity types across English, German, and Russian?
 
-### Q2 — Cross-Linguistic Differences
+The initial investigation focuses on:
+
+* `PER`
+* `ORG`
+* `LOC`
+
+Performance will be evaluated separately by language and, where appropriate, by entity type.
+
+---
+
+## Q2 — Cross-Linguistic Differences
 
 How do linguistic differences between English, German, and Russian affect entity recognition?
 
@@ -99,7 +107,11 @@ Examples include:
 * transliteration
 * multi-word entities
 
-### Q3 — Entity Boundary Detection
+The objective is to connect observable model behavior with linguistic structure rather than treating all recognition errors as equivalent.
+
+---
+
+## Q3 — Entity Boundary Detection
 
 How frequently do models identify the correct entity boundaries?
 
@@ -112,20 +124,35 @@ New York University
 
 should be treated as one organization rather than several independent tokens.
 
-### Q4 — Entity Type Confusion
+Boundary analysis is important because an entity prediction can have the correct general meaning while still identifying an incorrect span.
 
-Which entity categories are most frequently confused?
+---
 
-Examples:
+## Q4 — Entity Type Confusion
+
+Which supported entity categories are most frequently confused?
+
+The initial model supports:
 
 ```text
-ORG ↔ GPE
-LOC ↔ GPE
-PERSON ↔ ORG
-EVENT ↔ ORG
+PER
+ORG
+LOC
 ```
 
-### Q5 — Entity Normalization
+Therefore, initial confusion analysis may include patterns such as:
+
+```text
+ORG ↔ LOC
+PER ↔ ORG
+PER ↔ LOC
+```
+
+Additional categories such as `GPE`, `DATE`, `EVENT`, and `PRODUCT` are outside the initial model's label space and will not be evaluated unless a different model or fine-tuned system is introduced.
+
+---
+
+## Q5 — Entity Normalization
 
 Can extracted entities be normalized into consistent representations across languages?
 
@@ -133,13 +160,17 @@ For example:
 
 ```text
 United States
+
 Vereinigte Staaten
+
 Соединённые Штаты
 ```
 
 may refer to the same underlying entity.
 
 This question provides a direct connection to later entity linking and knowledge-graph construction.
+
+The initial normalization system will focus on **surface-form normalization** rather than attempting to determine real-world entity identity automatically.
 
 ---
 
@@ -154,7 +185,7 @@ The initial architecture is:
              Language Detection
                      │
                      ▼
-             Tokenization
+                Tokenization
                      │
                      ▼
           Multilingual NER Model
@@ -174,7 +205,7 @@ The initial architecture is:
           Cross-Lingual Analysis
                      │
                      ▼
-              Error Analysis
+               Error Analysis
 ```
 
 The system should keep extraction, normalization, evaluation, and analysis as separate components.
@@ -199,15 +230,25 @@ Responsibilities:
 * device selection
 * inference configuration
 
-The model should support multilingual input where practical.
+The initial model is:
 
-Potential model families include:
+```text
+jplu/tf-xlm-r-ner-40-lang
+```
 
-* multilingual BERT
-* XLM-RoBERTa
-* multilingual transformer NER models
+This is a multilingual XLM-RoBERTa-based NER model covering multiple languages, including English, German, and Russian.
 
-The exact model should be selected during implementation and documented with its language coverage and limitations.
+The initial implementation uses the model's three relevant entity labels:
+
+```text
+PER
+ORG
+LOC
+```
+
+The model choice is intentionally documented because the model's training data, label taxonomy, language coverage, and limitations affect the interpretation of our experiments.
+
+The project may evaluate alternative multilingual NER models in future work.
 
 ---
 
@@ -221,15 +262,15 @@ Conceptually:
 
 ```text
 text
- ↓
+  ↓
 tokenization
- ↓
+  ↓
 model inference
- ↓
+  ↓
 token-level predictions
- ↓
+  ↓
 entity span reconstruction
- ↓
+  ↓
 structured entities
 ```
 
@@ -248,7 +289,7 @@ Example:
 ```text
 {
     "text": "Angela Merkel",
-    "entity_type": "PERSON",
+    "entity_type": "PER",
     "start": 0,
     "end": 13,
     "score": 0.97
@@ -256,6 +297,8 @@ Example:
 ```
 
 The implementation should preserve character offsets whenever possible because entity boundaries are important for later evaluation and analysis.
+
+The extractor should also provide a consistent representation independent of the underlying Hugging Face pipeline.
 
 ---
 
@@ -299,7 +342,7 @@ NER errors should be categorized linguistically rather than simply counted.
 
 Initial categories include:
 
-### Boundary Error
+## Boundary Error
 
 The model identifies the wrong span.
 
@@ -311,46 +354,48 @@ Predicted:
 [New York]
 ```
 
-### Entity Type Error
+## Entity Type Error
 
 The entity span is approximately correct, but its category is wrong.
 
+For the initial model, examples include:
+
 ```text
 Expected: ORG
-Predicted: GPE
+Predicted: LOC
 ```
 
-### Missed Entity
+## Missed Entity
 
 A real entity is not detected.
 
 ```text
 Expected:
-[Angela Merkel] — PERSON
+[Angela Merkel] — PER
 
 Predicted:
 nothing
 ```
 
-### Spurious Entity
+## Spurious Entity
 
 The model predicts an entity where none exists.
 
-### Morphological Variation
+## Morphological Variation
 
 Inflection changes the surface form of an entity.
 
 This is particularly relevant for Russian and German.
 
-### Compound Structure
+## Compound Structure
 
 German compound nouns may contain entity-related information that is difficult to separate from surrounding lexical material.
 
-### Capitalization Variation
+## Capitalization Variation
 
 Capitalization provides different amounts of information across languages.
 
-### Cross-Lingual Variation
+## Cross-Lingual Variation
 
 Equivalent entities may appear with different:
 
@@ -359,6 +404,8 @@ Equivalent entities may appear with different:
 * transliterations
 * word order
 * abbreviations
+
+Error categories should be based on observed model behavior. The project should distinguish directly observable errors from hypotheses about their linguistic causes.
 
 ---
 
@@ -386,6 +433,8 @@ F1 = 0.82
 
 but to explain **why particular errors occur**.
 
+The explanation should be supported by controlled examples and observed model behavior rather than assumptions about the model.
+
 ---
 
 # Experiments
@@ -404,7 +453,13 @@ Measure:
 * entity-level performance
 * language-level performance
 
-Where appropriate, report results separately for entity types.
+Where appropriate, report results separately for:
+
+* `PER`
+* `ORG`
+* `LOC`
+
+The evaluation should make clear which dataset or controlled evaluation set is being used.
 
 ---
 
@@ -434,6 +489,8 @@ Compare:
 * boundaries
 * confidence
 * surface-form differences
+
+The experiment should distinguish entity recognition from entity identity. Recognizing two mentions as `PER` does not by itself prove that they refer to the same real-world entity.
 
 ---
 
@@ -484,7 +541,9 @@ For example:
 
 ```text
 United Nations
+
 Vereinte Nationen
+
 Организация Объединённых Наций
 ```
 
@@ -522,6 +581,14 @@ The project should avoid relying exclusively on token-level accuracy because cor
 1. identifying the correct span
 2. assigning the correct entity type
 
+The evaluation should also clearly distinguish between:
+
+* model performance measured on a dataset
+* observations from controlled linguistic examples
+* qualitative error analysis
+
+These provide different types of evidence and should not be treated as interchangeable.
+
 ---
 
 # Error Analysis Framework
@@ -553,15 +620,15 @@ Expected:
 Москва — LOC
 
 Prediction:
-Москва — GPE
+Москва — ORG
 
 Error:
 Entity type confusion
 
 Linguistic interpretation:
-The surface form is correctly identified as an entity,
-but the model distinguishes geographic location and
-geopolitical entity inconsistently.
+
+The surface form was identified as an entity, but the
+model assigned an incorrect entity category.
 ```
 
 The exact interpretation should be based on observed model behavior rather than assumptions.
@@ -685,7 +752,7 @@ Tests should cover the system independently from the notebooks.
 
 Initial test areas:
 
-### Entity Extraction
+## Entity Extraction
 
 * entities are returned in the expected structure
 * entity types are preserved
@@ -693,14 +760,14 @@ Initial test areas:
 * empty input is handled
 * multiple entities can be extracted
 
-### Normalization
+## Normalization
 
 * Unicode normalization
 * whitespace normalization
 * punctuation handling
 * preservation of meaningful distinctions
 
-### Experiments
+## Experiments
 
 * evaluation metrics
 * language-specific inputs
@@ -727,6 +794,8 @@ Experiments should document:
 * hardware/device where relevant
 
 Results should be reproducible from the repository whenever external model downloads are available.
+
+The model checkpoint and its label mapping should be recorded as part of the experiment configuration so that future model comparisons remain interpretable.
 
 ---
 
@@ -776,6 +845,9 @@ In particular, the initial implementation does not aim to provide:
 * exhaustive nested-entity recognition
 * production-scale information extraction
 * perfect multilingual coverage
+* the full `GPE`, `DATE`, `EVENT`, or `PRODUCT` taxonomy
+
+The last limitation is important: the initial model's label space is restricted to `PER`, `ORG`, and `LOC`.
 
 Entity linking and structured knowledge representation are intentionally reserved for the later **Cross-Lingual Knowledge Graph** project.
 
@@ -785,6 +857,8 @@ Entity linking and structured knowledge representation are intentionally reserve
 
 Potential extensions include:
 
+* evaluating alternative multilingual NER models
+* fine-tuning a model with a broader entity taxonomy
 * entity linking
 * Wikidata integration
 * multilingual knowledge graphs
@@ -835,8 +909,9 @@ The project therefore serves as a bridge between **multilingual NLP** and **know
 
 Planned progression:
 
-* [X] Project scaffolding
-* [X] README specification
+* [x] Project scaffolding
+* [x] README specification
+* [x] Initial NER model selection
 * [ ] NER model loader
 * [ ] Entity extraction
 * [ ] Entity normalization
